@@ -1,0 +1,100 @@
+{
+  "User": [
+    {
+      "uid": "ab123",
+      "Name": "abc",
+      "Lastname": "def",
+      "Email": "abc@gmail.com",
+      "Groups": [
+        {
+          "EVERYONE": "TestGroup1"
+        }
+      ]
+    }
+  ],
+
+  "docs": [
+    {
+      "title": "A",
+      "creator": ["Creator", "zz", { "oh": "obj obj in array12121" }],
+      "dd": ["y", "dd"]
+    },
+    {
+      "title": "B",
+      "creator": ["Creator2", "222222", { "oh": "obj obj in array11" }],
+      "dd": ["n", "zz"]
+    },
+    {
+      "title": "C",
+      "creator": ["Creator2", "222222", { "oh": "obj obj in array1122222" }],
+      "dd": ["n", "zz"]
+    }
+  ],
+
+  "a": [
+    {
+      "name": "Student 1",
+      "age": "22",
+      "department": "Information Technology",
+      "rollno": "123"
+    },
+    {
+      "name": "Student 2",
+      "age": "21",
+      "department": "Computer Engineering",
+      "rollno": "456"
+    },
+    {
+      "name": "Student 3",
+      "age": "23",
+      "department": "Information Technology",
+      "rollno": "789"
+    }
+  ],
+
+  "twooo": [
+    {
+      "name": "Student 2221",
+      "age": "22",
+      "department": "Information Technology",
+      "rollno": "123"
+    },
+    {
+      "name": "Student 2",
+      "age": "21",
+      "department": "Computer Engineering",
+      "rollno": "456"
+    },
+    {
+      "name": "Student 3",
+      "age": "23",
+      "department": "Information Technology",
+      "rollno": "789"
+    }
+  ],
+
+  "test": [
+    {
+      "a": {
+        "key": "1",
+        "letter": "a",
+        "word1": "aaa"
+      },
+      "b": {
+        "key": "2",
+        "letter": "b",
+        "word1": "bee"
+      },
+      "c": {
+        "key": "3",
+        "letter": "c",
+        "word1": "ccc"
+      },
+      "d": {
+        "key": "4",
+        "letter": "c",
+        "word1": "ccc"
+      }
+    }
+  ]
+}
