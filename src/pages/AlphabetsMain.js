@@ -115,7 +115,7 @@ const AlphabetsMain = () => {
             <>
               <section className="question-section">
                 <h1 style={{ marginLeft: "auto" }}>
-                  문제 {currentQuestion + 1}/{QuestionBox.length}
+                  ㅋㅋ 문제 {currentQuestion + 1}/{QuestionBox.length}
                 </h1>
                 <p>{QuestionBox[currentQuestion].questionText}</p>
               </section>

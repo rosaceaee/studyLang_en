@@ -2,6 +2,7 @@ import React from "react";
 
 import { useState } from "react";
 import { QuestionBox } from "../../components/QuestionBox";
+import { useNavigate } from "react-router-dom";
 import letters from "../../data/letters.json";
 
 const Letter_A = () => {
@@ -12,9 +13,11 @@ const Letter_A = () => {
       : { return: alert("다시한번!") };
   }
 
-  const [currentQuestion, setCurrentQuestion] = React.useState(0);
-  const [score, setScore] = React.useState(0);
-  const [showScore, setShowScore] = React.useState(false);
+  const navigate = useNavigate();
+
+  const [currentQuestion, setCurrentQuestion] = useState(0);
+  const [score, setScore] = useState(0);
+  const [showScore, setShowScore] = useState(false);
 
   const handleClick = (isCorrect) => {
     if (isCorrect) {
@@ -32,6 +35,8 @@ const Letter_A = () => {
   return (
     <>
       <div className="demo-con alphabet-con">
+        <button onClick={() => navigate(-1)}>뒤로가기</button>
+
         <div>
           {/*
           {letters.letter.map((letter) => (
@@ -87,6 +92,7 @@ const Letter_A = () => {
           </div>
         </div>
 
+        {/*
         <div className="letter-test-con jugwansick">
           <div>Apple로 맞는 것은?</div>
           <div>
@@ -100,6 +106,7 @@ const Letter_A = () => {
             <button onClick={handle}>제출</button>
           </div>
         </div>
+        */}
 
         <div className="letter-test-con objective">
           {showScore ? (
