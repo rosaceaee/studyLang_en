@@ -39,6 +39,8 @@ import About from "./About";
 import KeyboardInner from "./components/KeyboardInner";
 import Content from "./pages/Content";
 import SignIn from "./pages/SignIn";
+
+import Conn from "./Conn";
 {
   /*
 import Keyboard from "simple-keyboard";
@@ -96,6 +98,7 @@ function App() {
           <Route path="/alphabetCon/Y" exact element={<LetterY />} />
           <Route path="/alphabetCon/Z" exact element={<LetterZ />} />
           <Route path="/alphabetsection/" exact element={<AlphabetSection />} />
+          <Route path="/asdf/" exact element={<Conn />} />
 
           <Route path="/todotest/" exact element={<TodoTest />} />
           <Route path="/lettercon" exact element={<LetterContainer />} />
