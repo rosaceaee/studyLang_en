@@ -178,6 +178,9 @@ $primary-color: #369;
         -webkit-box-shadow: 1px 13px 16px -8px rgba(101, 122, 163, 0.6);
         -moz-box-shadow: 1px 13px 16px -8px rgba(101, 122, 163, 0.6);
 
+        &.acc {
+          border: 2px solid red !important;
+        }
         a {
           font-weight: 800;
           font-size: 1.3rem;
@@ -308,4 +311,8 @@ $primary-color: #369;
       }
     }
   }
+}
+
+.box.acc {
+  border: 2px solid red;
 }

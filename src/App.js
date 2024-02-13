@@ -98,7 +98,7 @@ function App() {
           <Route path="/alphabetCon/Y" exact element={<LetterY />} />
           <Route path="/alphabetCon/Z" exact element={<LetterZ />} />
           <Route path="/alphabetsection/" exact element={<AlphabetSection />} />
-          <Route path="/asdf/" exact element={<Conn />} />
+          <Route path="/zz/" exact element={<Conn />} />
 
           <Route path="/todotest/" exact element={<TodoTest />} />
           <Route path="/lettercon" exact element={<LetterContainer />} />
