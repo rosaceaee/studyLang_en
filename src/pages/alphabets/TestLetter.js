@@ -11,14 +11,14 @@ import {
 import letters from "../../data/letters.json";
 
 const TestLetter = () => {
-  const { id } = useParams();
-
   const [value, setValue] = useState("");
   function handle() {
     return value === "어"
       ? { return: alert("정답입니다!") }
       : { return: alert("다시한번!") };
   }
+
+  const params = useParams();
   const al = [
     "a",
     "b",
@@ -74,7 +74,7 @@ const TestLetter = () => {
     <>
       <div className="demo-con alphabet-con">
         <button onClick={() => navigate(-1)}>뒤로가기</button>
-
+        {params.idd}
         {pathh
           ? console.log("yes" + pathh + isMatchPath.params.pathname)
           : console.log("nopooo")}

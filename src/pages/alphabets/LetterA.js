@@ -1,6 +1,6 @@
 import React from "react";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { QuestionBox } from "../../components/QuestionBox";
 import { useNavigate, useLocation } from "react-router-dom";
 import letters from "../../data/letters.json";
@@ -15,26 +15,20 @@ const LetterA = () => {
 
   const navigate = useNavigate();
 
-  const [currentQuestion, setCurrentQuestion] = useState(0);
-  const [score, setScore] = useState(0);
-  const [showScore, setShowScore] = useState(false);
+  const [obj, setObj] = useState("");
+  const [list, setList] = useState([]);
+
+  function inputt(e) {
+    setObj(e.target.value);
+  }
+  function handleClick() {
+    setList((list) => [...list, obj]);
+  }
+
   const location = useLocation();
 
   console.log(location.pathname);
   const pathh = location.pathname;
-
-  const handleClick = (isCorrect) => {
-    if (isCorrect) {
-      setScore(score + 1);
-    }
-
-    const nextQuestion = currentQuestion + 1;
-    if (nextQuestion < QuestionBox.length) {
-      setCurrentQuestion(nextQuestion);
-    } else {
-      setShowScore(true);
-    }
-  };
 
   return (
     <>
@@ -90,35 +84,26 @@ const LetterA = () => {
                       <span className="otherletters">ㄹ</span>
                     </h3>
                   </div>
+
+                  {list.map((ii, index) => {
+                    return (
+                      <>
+                        <div className="practice-wrap">
+                          <p key={index}>{ii}</p>
+                        </div>
+                      </>
+                    );
+                  })}
+                </div>
+                <div>
+                  <input type="text" value={obj} onChange={inputt}></input>
+                  <button type="submit" onClick={handleClick}>
+                    basdfdsafb
+                  </button>
                 </div>
               </>
             );
           })}
-
-        <div className="letter-test-con objective">
-          {showScore ? (
-            <section className="showScore-section">
-              {QuestionBox.length}개 중에서 {score}개나 맞추셨네요!
-            </section>
-          ) : (
-            <>
-              <section className="question-section">
-                <h1 style={{ marginLeft: "auto" }}>
-                  문제 {currentQuestion + 1}/{QuestionBox.length}
-                </h1>
-                <p>{QuestionBox[currentQuestion].questionText}</p>
-              </section>
-
-              <section className="answer-section">
-                {QuestionBox[currentQuestion].answerOptions.map((item) => (
-                  <button onClick={() => handleClick(item.isCorrect)}>
-                    {item.answerText}
-                  </button>
-                ))}
-              </section>
-            </>
-          )}
-        </div>
       </div>
     </>
   );

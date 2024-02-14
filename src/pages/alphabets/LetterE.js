@@ -1,10 +1,9 @@
-import React, { useEffect } from "react";
+import React from "react";
 
-import { useState } from "react";
-import { QuestionE } from "../../components/QuestionBox";
-import { a } from "../../components/WordLists";
+import { useState, useEffect } from "react";
+import { QuestionBox } from "../../components/QuestionBox";
+import { useNavigate, useLocation, useMatch } from "react-router-dom";
 import letters from "../../data/letters.json";
-import { useNavigate } from "react-router-dom";
 
 const LetterE = () => {
   const [value, setValue] = useState("");
@@ -14,9 +13,23 @@ const LetterE = () => {
       : { return: alert("다시한번!") };
   }
 
-  const [currentQuestion, setCurrentQuestion] = React.useState(0);
-  const [score, setScore] = React.useState(0);
-  const [showScore, setShowScore] = React.useState(false);
+  const navigate = useNavigate();
+
+  const [currentQuestion, setCurrentQuestion] = useState(0);
+  const [score, setScore] = useState(0);
+  const [showScore, setShowScore] = useState(false);
+  const location = useLocation();
+
+  // console.log(location.pathname);
+  const pathh = location.pathname;
+
+  const isMatchPath = useMatch("/:pathname");
+
+  useEffect(() => {
+    if (isMatchPath) {
+      console.log(isMatchPath.params.pathname);
+    }
+  }, []);
 
   const handleClick = (isCorrect) => {
     if (isCorrect) {
@@ -24,16 +37,11 @@ const LetterE = () => {
     }
 
     const nextQuestion = currentQuestion + 1;
-    if (nextQuestion < QuestionE.length) {
+    if (nextQuestion < QuestionBox.length) {
       setCurrentQuestion(nextQuestion);
     } else {
       setShowScore(true);
     }
-  };
-
-  const navigate = useNavigate();
-  const onCancel = () => {
-    navigate(-1);
   };
 
   return (
@@ -41,93 +49,83 @@ const LetterE = () => {
       <div className="demo-con alphabet-con">
         <button onClick={() => navigate(-1)}>뒤로가기</button>
 
-        <div>
-          {/*
-          {letters.letter.map((letter) => (
-            <h1 key={letter.id} className="letter">
-              {letter.lettername}
-            </h1>
-          ))} */}
-          <h1>e</h1>
-        </div>
+        {pathh
+          ? console.log("yes" + pathh + isMatchPath.params.pathname)
+          : console.log("nopooo")}
 
-        <div className="pronunciation-con">
-          <h3 className="header">발음은 어떻게 해야할까요?</h3>
-          <div>
-            <h3>1. 아</h3>
-          </div>
-          <div>
-            <h3>2. 애</h3>
-          </div>
-          <div>
-            <h3>3. 어</h3>
-          </div>
-        </div>
+        {letters.letter
+          .filter((word) =>
+            word.lettername.startsWith(isMatchPath.params.pathname)
+          )
+          .map((item) => {
+            return (
+              <>
+                {" "}
+                <h1>{item.lettername}</h1>
+                <div className="pronunciation-con">
+                  <h3 className="header">발음은 어떻게 해야할까요?</h3>
+                  <div>
+                    <h3>{item.pronounce[0]}</h3>
+                  </div>
+                  <div>
+                    <h3>{item.pronounce[1]}</h3>{" "}
+                  </div>
+                  <div>
+                    <h3>{item.pronounce[2]}</h3>
+                  </div>
+                </div>
+                <div className="practice-con">
+                  <h3 className="header">예문을 보며 읽어보기.</h3>
+                  <div className="practice-wrap">
+                    <h3>
+                      <span className="read-eng">A</span>morepacific
+                    </h3>
+                    <h3 className="read-kor">
+                      아 <span className="otherletters"> 모레 퍼시픽</span>
+                    </h3>
+                  </div>
 
-        <div className="practice-con">
-          <h3 className="header">예문을 보며 읽어보기.</h3>
+                  <div className="practice-wrap">
+                    <h3>
+                      <span className="read-eng">A</span>pple
+                    </h3>
+                    <h3 className="read-kor">
+                      애 <span className="otherletters"> 플</span>
+                    </h3>
+                  </div>
 
-          <div className="practice-wrap">
-            <h3>
-              <span className="read-eng">A</span>morepacific
-            </h3>
-            <h3 className="read-kor">
-              아 <span className="otherletters"> 모레 퍼시픽</span>
-            </h3>
-          </div>
-
-          <div className="practice-wrap">
-            <h3>
-              <span className="read-eng">A</span>pple
-            </h3>
-            <h3 className="read-kor">
-              애 <span className="otherletters"> 플</span>
-            </h3>
-          </div>
-
-          <div className="practice-wrap">
-            <h3>
-              du<span className="read-eng">A</span>l
-            </h3>
-            <h3 className="read-kor">
-              <span className="otherletters"> 듀</span> 어{" "}
-              <span className="otherletters">ㄹ</span>
-            </h3>
-          </div>
-        </div>
-
-        <div className="letter-test-con jugwansick">
-          <div>Apple로 맞는 것은?</div>
-          <div>
-            <input
-              value={value}
-              onChange={(e) => {
-                setValue(e.target.value);
-              }}
-              placeholder="정답을 입력하세용"
-            />
-            <button onClick={handle}>제출</button>
-          </div>
-        </div>
+                  <div className="practice-wrap">
+                    <h3>
+                      du<span className="read-eng">A</span>l
+                    </h3>
+                    <h3 className="read-kor">
+                      <span className="otherletters"> 듀</span> 어{" "}
+                      <span className="otherletters">ㄹ</span>
+                    </h3>
+                  </div>
+                </div>
+              </>
+            );
+          })}
 
         <div className="letter-test-con objective">
           {showScore ? (
             <section className="showScore-section">
-              {QuestionE.length}개 중에서 {score}개나 맞추셨네요!
+              {QuestionBox.length}개 중에서 {score}개나 맞추셨네요!
             </section>
           ) : (
             <>
               <section className="question-section">
                 <h1 style={{ marginLeft: "auto" }}>
-                  문제 {currentQuestion + 1}/{QuestionE.length}
+                  문제 {currentQuestion + 1}/{QuestionBox.length}
                 </h1>
-                <p>{QuestionE[currentQuestion].questionText}d</p>
+                <p>{QuestionBox[currentQuestion].questionText}</p>
               </section>
 
               <section className="answer-section">
-                {QuestionE[currentQuestion].answerOption.map((i) => (
-                  <button onClick={() => handleClick(i.isCorrect)}>
-                    {i.answerText}
+                {QuestionBox[currentQuestion].answerOptions.map((item) => (
+                  <button onClick={() => handleClick(item.isCorrect)}>
+                    {item.answerText}
                   </button>
                 ))}
               </section>
