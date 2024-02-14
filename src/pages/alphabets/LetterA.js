@@ -2,7 +2,7 @@ import React from "react";
 
 import { useState, useEffect } from "react";
 import { QuestionBox } from "../../components/QuestionBox";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate, useLocation, useMatch } from "react-router-dom";
 import letters from "../../data/letters.json";
 
 const LetterA = () => {
@@ -13,7 +13,6 @@ const LetterA = () => {
       : { return: alert("다시한번!") };
   }
 
-  const navigate = useNavigate();
   function inputt(e) {
     setObj(e.target.value);
   }
@@ -24,7 +23,7 @@ const LetterA = () => {
   const [list, setList] = useState([]);
 
   useEffect(() => {
-    const storedList = localStorage.getItem("test");
+    const storedList = localStorage.getItem("a");
     if (storedList) {
       setList(JSON.parse(storedList));
     }
@@ -32,23 +31,41 @@ const LetterA = () => {
 
   useEffect(() => {
     if (list.length > 0) {
-      localStorage.setItem("test", JSON.stringify(list));
+      localStorage.setItem("a", JSON.stringify(list));
     }
   }, [list]);
 
+  const navigate = useNavigate();
+
+  const [currentQuestion, setCurrentQuestion] = useState(0);
+  const [score, setScore] = useState(0);
+  const [showScore, setShowScore] = useState(false);
   const location = useLocation();
 
-  console.log(location.pathname);
+  // console.log(location.pathname);
   const pathh = location.pathname;
+
+  const isMatchPath = useMatch("/:pathname");
+
+  useEffect(() => {
+    if (isMatchPath) {
+      console.log(isMatchPath.params.pathname);
+    }
+  }, []);
 
   return (
     <>
       <div className="demo-con alphabet-con">
         <button onClick={() => navigate(-1)}>뒤로가기</button>
-        {pathh ? console.log("yes" + pathh) : console.log("no")}
+
+        {pathh
+          ? console.log("yes" + pathh + isMatchPath.params.pathname)
+          : console.log("nopooo")}
 
         {letters.letter
-          .filter((word) => word.lettername.startsWith("A"))
+          .filter((word) =>
+            word.lettername.startsWith(isMatchPath.params.pathname)
+          )
           .map((item) => {
             return (
               <>
@@ -99,17 +116,17 @@ const LetterA = () => {
                   {list.map((ii, index) => {
                     return (
                       <>
-                        <div className="practice-wrap">
-                          <p key={index}>{ii}</p>
+                        <div className="practice-wrap add">
+                          <h3 key={index}>{ii}</h3>
                         </div>
                       </>
                     );
                   })}
                 </div>
-                <div>
+                <div className="add-container">
                   <input type="text" value={obj} onChange={inputt}></input>
                   <button type="submit" onClick={handleClick}>
-                    basdfdsafb
+                    입력
                   </button>
                 </div>
               </>

@@ -13,6 +13,28 @@ const LetterC = () => {
       : { return: alert("다시한번!") };
   }
 
+  function inputt(e) {
+    setObj(e.target.value);
+  }
+  function handleClick() {
+    setList((list) => [...list, obj]);
+  }
+  const [obj, setObj] = useState("");
+  const [list, setList] = useState([]);
+
+  useEffect(() => {
+    const storedList = localStorage.getItem("c");
+    if (storedList) {
+      setList(JSON.parse(storedList));
+    }
+  }, []);
+
+  useEffect(() => {
+    if (list.length > 0) {
+      localStorage.setItem("c", JSON.stringify(list));
+    }
+  }, [list]);
+
   const navigate = useNavigate();
 
   const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -31,19 +53,6 @@ const LetterC = () => {
     }
   }, []);
 
-  const handleClick = (isCorrect) => {
-    if (isCorrect) {
-      setScore(score + 1);
-    }
-
-    const nextQuestion = currentQuestion + 1;
-    if (nextQuestion < QuestionBox.length) {
-      setCurrentQuestion(nextQuestion);
-    } else {
-      setShowScore(true);
-    }
-  };
-
   return (
     <>
       <div className="demo-con alphabet-con">
@@ -54,7 +63,9 @@ const LetterC = () => {
           : console.log("nopooo")}
 
         {letters.letter
-          .filter((word) => word.lettername == isMatchPath.params.pathname)
+          .filter((word) =>
+            word.lettername.startsWith(isMatchPath.params.pathname)
+          )
           .map((item) => {
             return (
               <>
@@ -101,35 +112,26 @@ const LetterC = () => {
                       <span className="otherletters">ㄹ</span>
                     </h3>
                   </div>
+
+                  {list.map((ii, index) => {
+                    return (
+                      <>
+                        <div className="practice-wrap">
+                          <h3 key={index}>{ii}</h3>
+                        </div>
+                      </>
+                    );
+                  })}
+                </div>
+                <div>
+                  <input type="text" value={obj} onChange={inputt}></input>
+                  <button type="submit" onClick={handleClick}>
+                    입력
+                  </button>
                 </div>
               </>
             );
           })}
-
-        <div className="letter-test-con objective">
-          {showScore ? (
-            <section className="showScore-section">
-              {QuestionBox.length}개 중에서 {score}개나 맞추셨네요!
-            </section>
-          ) : (
-            <>
-              <section className="question-section">
-                <h1 style={{ marginLeft: "auto" }}>
-                  문제 {currentQuestion + 1}/{QuestionBox.length}
-                </h1>
-                <p>{QuestionBox[currentQuestion].questionText}</p>
-              </section>
-
-              <section className="answer-section">
-                {QuestionBox[currentQuestion].answerOptions.map((item) => (
-                  <button onClick={() => handleClick(item.isCorrect)}>
-                    {item.answerText}
-                  </button>
-                ))}
-              </section>
-            </>
-          )}
-        </div>
       </div>
     </>
   );

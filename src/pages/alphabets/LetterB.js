@@ -23,7 +23,7 @@ const LetterB = () => {
   const [list, setList] = useState([]);
 
   useEffect(() => {
-    const storedList = localStorage.getItem("word-b");
+    const storedList = localStorage.getItem("b");
     if (storedList) {
       setList(JSON.parse(storedList));
     }
@@ -31,7 +31,7 @@ const LetterB = () => {
 
   useEffect(() => {
     if (list.length > 0) {
-      localStorage.setItem("word-b", JSON.stringify(list));
+      localStorage.setItem("b", JSON.stringify(list));
     }
   }, [list]);
 
@@ -63,7 +63,9 @@ const LetterB = () => {
           : console.log("nopooo")}
 
         {letters.letter
-          .filter((word) => word.lettername.startsWith("B"))
+          .filter((word) =>
+            word.lettername.startsWith(isMatchPath.params.pathname)
+          )
           .map((item) => {
             return (
               <>
@@ -114,47 +116,22 @@ const LetterB = () => {
                   {list.map((ii, index) => {
                     return (
                       <>
-                        <div className="practice-wrap">
-                          <p key={index}>{ii}</p>
+                        <div className="practice-wrap add">
+                          <h3 key={index}>{ii}</h3>
                         </div>
                       </>
                     );
                   })}
                 </div>
-                <div>
+                <div className="add-container">
                   <input type="text" value={obj} onChange={inputt}></input>
                   <button type="submit" onClick={handleClick}>
-                    basdfdsafb
+                    입력
                   </button>
                 </div>
               </>
             );
           })}
-
-        <div className="letter-test-con objective">
-          {showScore ? (
-            <section className="showScore-section">
-              {QuestionBox.length}개 중에서 {score}개나 맞추셨네요!
-            </section>
-          ) : (
-            <>
-              <section className="question-section">
-                <h1 style={{ marginLeft: "auto" }}>
-                  문제 {currentQuestion + 1}/{QuestionBox.length}
-                </h1>
-                <p>{QuestionBox[currentQuestion].questionText}</p>
-              </section>
-
-              <section className="answer-section">
-                {QuestionBox[currentQuestion].answerOptions.map((item) => (
-                  <button onClick={() => handleClick(item.isCorrect)}>
-                    {item.answerText}
-                  </button>
-                ))}
-              </section>
-            </>
-          )}
-        </div>
       </div>
     </>
   );
