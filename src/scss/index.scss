@@ -1,5 +1,3 @@
-$primary-color: #369;
-
 * {
   margin: 0;
   padding: 0;
@@ -18,7 +16,7 @@ $primary-color: #369;
     text-decoration: none;
     &:visited,
     &:link {
-      color: $primary-color;
+      color: #369;
     }
   }
 }
@@ -36,38 +34,10 @@ button {
   }
 }
 
-.header-con {
-  .hamburger .line {
-    width: 50px;
-    height: 5px;
-    background-color: green;
-    display: block;
-    margin: 8px auto;
-    -webkit-transition: all 0.3s ease-in-out;
-    -o-transition: all 0.3s ease-in-out;
-    transition: all 0.3s ease-in-out;
-  }
-
-  #hamburger-7.is-active .line:nth-child(1) {
-    width: 30px;
-  }
-
-  #hamburger-7.is-active .line:nth-child(2) {
-    width: 40px;
-  }
-
-  #hamburger-7.is-active .line {
-    -webkit-transform: rotate(30deg);
-    -ms-transform: rotate(30deg);
-    -o-transform: rotate(30deg);
-    transform: rotate(30deg);
-  }
-}
-
 .demo-con {
   width: 100%;
   height: 100vh;
-  color: $primary-color;
+  color: #369;
   background: #ffe4d2;
 
   h1 {
@@ -80,8 +50,6 @@ button {
     height: 100vh;
     align-items: center;
     justify-content: center;
-    h1 {
-    }
   }
 
   .grass-con {
@@ -125,11 +93,6 @@ button {
   background-repeat: no-repeat;
 }
 
-// tutorial
-.tutorial-con {
-  width: 100%;
-}
-
 @media screen and (max-width: 425px) and (orientation: portrait) {
   .demo-con {
     .grass-con {
@@ -158,11 +121,6 @@ button {
           }
         }
       }
-    }
-    &.alpha {
-      display: flex;
-      flex-direction: column;
-      height: auto;
     }
 
     h1 {
@@ -194,9 +152,6 @@ button {
         -webkit-box-shadow: 1px 13px 16px -8px rgba(101, 122, 163, 0.6);
         -moz-box-shadow: 1px 13px 16px -8px rgba(101, 122, 163, 0.6);
 
-        &.acc {
-          border: 2px solid red !important;
-        }
         a {
           font-weight: 800;
           font-size: 1.3rem;
@@ -319,47 +274,5 @@ button {
         padding: 0.5rem 1rem;
       }
     }
-
-    .letter-test-con {
-      &.objective {
-        margin-top: 1rem;
-        div {
-          margin: 1rem auto;
-        }
-
-        section.question-section {
-          width: 100%;
-
-          h1 {
-            margin-left: auto;
-            text-align: right;
-            font-size: 1rem;
-          }
-
-          p {
-            text-align: center;
-            font-size: 1.2rem;
-          }
-        }
-
-        section.answer-section {
-          margin: 1rem auto 0 auto;
-          display: flex;
-          justify-content: center;
-          button {
-            border: none;
-            background: #369;
-            color: #fff;
-            font-weight: bold;
-            padding: 0.5rem 1.5rem;
-            margin: 0 0.5rem;
-          }
-        }
-      }
-    }
   }
-}
-
-.box.acc {
-  border: 2px solid red;
 }
