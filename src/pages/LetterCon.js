@@ -1,11 +1,11 @@
 import React from "react";
 
 import { useState } from "react";
-import { QuestionBox } from "../../components/QuestionBox";
+import { QuestionBox } from "../components/QuestionBox";
 import { useNavigate, useLocation } from "react-router-dom";
-import letters from "../../data/letters.json";
+import letters from "../data/letters.json";
 
-const LetterA = () => {
+const LetterCon = () => {
   const [value, setValue] = useState("");
   function handle() {
     return value === "어"
@@ -20,8 +20,7 @@ const LetterA = () => {
   const [showScore, setShowScore] = useState(false);
   const location = useLocation();
 
-  console.log(location.pathname);
-  const pathh = location.pathname;
+  console.log(location);
 
   const handleClick = (isCorrect) => {
     if (isCorrect) {
@@ -40,7 +39,6 @@ const LetterA = () => {
     <>
       <div className="demo-con alphabet-con">
         <button onClick={() => navigate(-1)}>뒤로가기</button>
-        {pathh ? console.log("yes" + pathh) : console.log("no")}
 
         {letters.letter
           .filter((word) => word.lettername.startsWith("A"))
@@ -124,4 +122,4 @@ const LetterA = () => {
   );
 };
 
-export default LetterA;
+export default LetterCon;

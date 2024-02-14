@@ -5,13 +5,8 @@ import { QuestionBox } from "../../components/QuestionBox";
 import { useNavigate, useLocation } from "react-router-dom";
 import letters from "../../data/letters.json";
 
-const LetterA = () => {
+const TestLetter = () => {
   const [value, setValue] = useState("");
-  function handle() {
-    return value === "어"
-      ? { return: alert("정답입니다!") }
-      : { return: alert("다시한번!") };
-  }
 
   const navigate = useNavigate();
 
@@ -22,19 +17,6 @@ const LetterA = () => {
 
   console.log(location.pathname);
   const pathh = location.pathname;
-
-  const handleClick = (isCorrect) => {
-    if (isCorrect) {
-      setScore(score + 1);
-    }
-
-    const nextQuestion = currentQuestion + 1;
-    if (nextQuestion < QuestionBox.length) {
-      setCurrentQuestion(nextQuestion);
-    } else {
-      setShowScore(true);
-    }
-  };
 
   return (
     <>
@@ -94,34 +76,9 @@ const LetterA = () => {
               </>
             );
           })}
-
-        <div className="letter-test-con objective">
-          {showScore ? (
-            <section className="showScore-section">
-              {QuestionBox.length}개 중에서 {score}개나 맞추셨네요!
-            </section>
-          ) : (
-            <>
-              <section className="question-section">
-                <h1 style={{ marginLeft: "auto" }}>
-                  문제 {currentQuestion + 1}/{QuestionBox.length}
-                </h1>
-                <p>{QuestionBox[currentQuestion].questionText}</p>
-              </section>
-
-              <section className="answer-section">
-                {QuestionBox[currentQuestion].answerOptions.map((item) => (
-                  <button onClick={() => handleClick(item.isCorrect)}>
-                    {item.answerText}
-                  </button>
-                ))}
-              </section>
-            </>
-          )}
-        </div>
       </div>
     </>
   );
 };
 
-export default LetterA;
+export default TestLetter;

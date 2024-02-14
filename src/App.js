@@ -32,7 +32,9 @@ import LetterX from "./pages/alphabets/LetterX";
 import LetterY from "./pages/alphabets/LetterY";
 import LetterZ from "./pages/alphabets/LetterZ";
 import TodoTest from "./TodoTest";
+
 import LetterContainer from "./pages/letters/LetterContainer";
+import LetterCon from "./pages/LetterCon";
 
 import Header from "./components/Header";
 import About from "./About";
@@ -62,6 +64,11 @@ function onKeyPress(button) {
 */
 }
 
+const componentMapping = {
+  "/A": LetterA,
+  "/B": LetterB,
+  // Add other pathnames and corresponding components here
+};
 function App() {
   return (
     <>
@@ -71,8 +78,8 @@ function App() {
           <Route path="/alphabetCon" exact element={<AlphabetCon />} />
           <Route path="/AlphabetsMain" exact element={<AlphabetsMain />} />
           <Route path="/SignIn" exact element={<SignIn />} />
-          <Route path="/alphabetCon/A" exact element={<LetterA />} />
-          <Route path="/alphabetCon/B" exact element={<LetterB />} />
+          <Route path="/A" exact element={<LetterA />} />
+          <Route path="/B" exact element={<LetterB />} />
           <Route path="/alphabetCon/C" exact element={<LetterC />} />
           <Route path="/alphabetCon/D" exact element={<LetterD />} />
           <Route path="/alphabetCon/E" exact element={<LetterE />} />
@@ -98,7 +105,8 @@ function App() {
           <Route path="/alphabetCon/Y" exact element={<LetterY />} />
           <Route path="/alphabetCon/Z" exact element={<LetterZ />} />
           <Route path="/alphabetsection/" exact element={<AlphabetSection />} />
-          <Route path="/zz/" exact element={<Conn />} />
+          <Route path="/zz/:id" exact element={<Conn />} />
+          <Route path="/con" exact element={<LetterCon />} />
 
           <Route path="/todotest/" exact element={<TodoTest />} />
           <Route path="/lettercon" exact element={<LetterContainer />} />

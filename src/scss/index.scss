@@ -23,6 +23,19 @@ $primary-color: #369;
   }
 }
 
+button {
+  &:first-child {
+    width: 5rem;
+    padding: 0.5rem;
+    font-size: 1rem;
+    margin-left: auto;
+    border: none;
+    background: #369;
+    color: #fff;
+    border-radius: 5px;
+  }
+}
+
 .header-con {
   .hamburger .line {
     width: 50px;
@@ -185,6 +198,9 @@ $primary-color: #369;
           font-weight: 800;
           font-size: 1.3rem;
           text-transform: capitalize;
+          &:visited {
+            color: orange !important;
+          }
         }
       }
     }

@@ -9,14 +9,11 @@ const Conn = () => {
     job: "jobbbbbb",
   };
 
-  const Wordlist = JSON.parse(WordLists);
-
   return (
     <>
-      <AppContext.Provider value={Wordlist}>
+      <AppContext.Provider value={user}>
         <div>
           <ConDown />
-          {Wordlist.a}
         </div>
       </AppContext.Provider>
     </>

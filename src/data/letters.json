@@ -2,111 +2,138 @@
   "letter": [
     {
       "id": 1,
-      "lettername": "A"
+      "lettername": "A",
+      "pronounce": ["아", "애", "어"]
     },
     {
       "id": 2,
-      "lettername": "B"
+      "lettername": "B",
+      "pronounce": ["sds아", "애", "어"]
     },
     {
       "id": 3,
-      "lettername": "C"
+      "lettername": "C",
+      "pronounce": ["sds아", "애", "어"]
     },
     {
       "id": 4,
-      "lettername": "D"
+      "lettername": "D",
+      "pronounce": ["sds아", "애", "어"]
     },
     {
       "id": 5,
-      "lettername": "E"
+      "lettername": "E",
+      "pronounce": ["sds아", "애", "어"]
     },
     {
       "id": 6,
-      "lettername": "f"
+      "lettername": "f",
+      "pronounce": ["sds아", "애", "어"]
     },
     {
       "id": 7,
-      "lettername": "g"
+      "lettername": "g",
+      "pronounce": ["sds아", "애", "어"]
     },
     {
       "id": 8,
-      "lettername": "H"
+      "lettername": "H",
+      "pronounce": ["sds아", "애", "어"]
     },
     {
       "id": 9,
-      "lettername": "I"
+      "lettername": "I",
+      "pronounce": ["sds아", "애", "어"]
     },
     {
       "id": 10,
-      "lettername": "j"
+      "lettername": "j",
+      "pronounce": ["sds아", "애", "어"]
     },
     {
       "id": 11,
-      "lettername": "k"
+      "lettername": "k",
+      "pronounce": ["sds아", "애", "어"]
     },
     {
       "id": 12,
-      "lettername": "L"
+      "lettername": "L",
+      "pronounce": ["sds아", "애", "어"]
     },
     {
       "id": 13,
-      "lettername": "M"
+      "lettername": "M",
+      "pronounce": ["sds아", "애", "어"]
     },
     {
       "id": 14,
-      "lettername": "N"
+      "lettername": "N",
+      "pronounce": ["sds아", "애", "어"]
     },
     {
       "id": 15,
-      "lettername": "O"
+      "lettername": "O",
+      "pronounce": ["sds아", "애", "어"]
     },
     {
       "id": 16,
-      "lettername": "k"
+      "lettername": "k",
+      "pronounce": ["sds아", "애", "어"]
     },
     {
       "id": 17,
-      "lettername": "P"
+      "lettername": "P",
+      "pronounce": ["sds아", "애", "어"]
     },
     {
       "id": 18,
-      "lettername": "Q"
+      "lettername": "Q",
+      "pronounce": ["sds아", "애", "어"]
     },
     {
       "id": 19,
-      "lettername": "R"
+      "lettername": "R",
+      "pronounce": ["sds아", "애", "어"]
     },
     {
       "id": 20,
-      "lettername": "S"
+      "lettername": "S",
+      "pronounce": ["sds아", "애", "어"]
     },
     {
       "id": 21,
-      "lettername": "T"
+      "lettername": "T",
+      "pronounce": ["sds아", "애", "어"]
     },
     {
       "id": 22,
-      "lettername": "U"
+      "lettername": "U",
+      "pronounce": ["sds아", "애", "어"]
     },
     {
       "id": 23,
-      "lettername": "V"
+      "lettername": "V",
+      "pronounce": ["sds아", "애", "어"]
     },
     {
       "id": 24,
-      "lettername": "W"
+      "lettername": "W",
+      "pronounce": ["sds아", "애", "어"]
     },
     {
       "id": 25,
-      "lettername": "X"
+      "lettername": "X",
+      "pronounce": ["sds아", "애", "어"]
     },
     {
       "id": 26,
-      "lettername": "Y"
+      "lettername": "Y",
+      "pronounce": ["sds아", "애", "어"]
     },
     {
       "id": 27,
-      "lettername": "Z"
+      "lettername": "Z",
+      "pronounce": ["sds아", "애", "어"]
     }
   ]
 }
