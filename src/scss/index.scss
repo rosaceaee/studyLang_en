@@ -42,6 +42,21 @@ button {
 
   h1 {
     font-family: "twayair";
+    &.highlighted {
+      position: relative;
+    }
+    &:after {
+      content: "알파벳입니다.";
+      bottom: -2rem;
+      position: absolute;
+      font-size: 1rem;
+      background: #fff;
+      width: 30%;
+      height: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
   }
 
   .wrap {
@@ -231,6 +246,22 @@ button {
 
     .practice-con {
       margin: 2rem auto 6rem;
+      &.highlighted {
+        position: relative;
+      }
+      &:after {
+        content: "알파벳입니다.";
+        top: -2rem;
+        position: absolute;
+        font-size: 1rem;
+        background: #fff;
+        width: 100%;
+        height: 2rem;
+        text-align: left;
+        display: flex;
+        align-items: center;
+        justify-content: start;
+      }
     }
 
     .practice-wrap {
@@ -281,10 +312,12 @@ button {
         top: -1.4rem;
       }
 
-      input,
-      button {
-        font-size: 1.3rem;
-        padding: 0.5rem 1rem;
+      .add-wrap {
+        input,
+        button {
+          font-size: 1.3rem;
+          padding: 0.5rem 1rem;
+        }
       }
     }
   }
@@ -314,6 +347,15 @@ button {
       h1 {
         text-align: center;
         padding: 1rem 0;
+
+        &.next {
+          font-size: 1.2rem;
+          border: 1px solid;
+        }
+      }
+
+      .hide {
+        opacity: 0;
       }
       span.white {
         display: inline-flex;
@@ -334,6 +376,13 @@ button {
         margin-bottom: 1rem;
         display: block;
         color: #333;
+
+        &.highlighted {
+          z-index: 999;
+          transition: all 0.3s ease;
+          border: 3px solid rgb(211, 239, 49);
+          background-color: #fff;
+        }
       }
     }
   }

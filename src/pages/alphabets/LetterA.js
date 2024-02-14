@@ -48,7 +48,7 @@ const LetterA = () => {
   const [highlightedIndex, setHighlightedIndex] = useState(0);
 
   const accentDom = () => {
-    setHighlightedIndex((prevIndex) => (prevIndex + 1) % 4);
+    setHighlightedIndex((prevIndex) => (prevIndex + 1) % 5);
   };
 
   useEffect(() => {
@@ -69,7 +69,13 @@ const LetterA = () => {
         {tuto && (
           <div className="tutorial-con">
             <div className="tuto-wrap">
-              <button onClick={ischecked}>확인했습니다.</button>
+              <h1 className="next">다음</h1>
+              <button
+                className={highlightedIndex === 4 ? " highlighted" : "hide"}
+                onClick={ischecked}
+              >
+                화면 안내 종료
+              </button>
             </div>
           </div>
         )}
@@ -151,12 +157,20 @@ const LetterA = () => {
                       </>
                     );
                   })}
-                </div>
-                <div className="add-container">
-                  <input type="text" value={obj} onChange={inputt}></input>
-                  <button type="submit" onClick={handleClick}>
-                    입력
-                  </button>
+                </div>{" "}
+                <div
+                  className={
+                    highlightedIndex === 3
+                      ? "add-container highlighted"
+                      : "add-container"
+                  }
+                >
+                  <div className="add-wrap">
+                    <input type="text" value={obj} onChange={inputt}></input>
+                    <button type="submit" onClick={handleClick}>
+                      입력
+                    </button>
+                  </div>
                 </div>
               </>
             );
