@@ -1,12 +1,43 @@
 import React from "react";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { QuestionBox } from "../../components/QuestionBox";
-import { useNavigate, useLocation } from "react-router-dom";
+import {
+  useNavigate,
+  useLocation,
+  useMatch,
+  useParams,
+} from "react-router-dom";
 import letters from "../../data/letters.json";
 
 const TestLetter = () => {
+  const { id } = useParams();
+
   const [value, setValue] = useState("");
+  function handle() {
+    return value === "어"
+      ? { return: alert("정답입니다!") }
+      : { return: alert("다시한번!") };
+  }
+  const al = [
+    "a",
+    "b",
+    "c",
+    "d",
+    "e",
+    "f",
+    "g",
+    "h",
+    "i",
+    "j",
+    "k",
+    "l",
+    "m",
+    "n",
+  ];
+
+  const alUpperCase = al.map((item) => item.toUpperCase());
+  console.log(alUpperCase);
 
   const navigate = useNavigate();
 
@@ -15,17 +46,41 @@ const TestLetter = () => {
   const [showScore, setShowScore] = useState(false);
   const location = useLocation();
 
-  console.log(location.pathname);
+  // console.log(location.pathname);
   const pathh = location.pathname;
+
+  const isMatchPath = useMatch("/:pathname");
+
+  useEffect(() => {
+    if (isMatchPath) {
+      console.log(isMatchPath.params.pathname);
+    }
+  }, []);
+
+  const handleClick = (isCorrect) => {
+    if (isCorrect) {
+      setScore(score + 1);
+    }
+
+    const nextQuestion = currentQuestion + 1;
+    if (nextQuestion < QuestionBox.length) {
+      setCurrentQuestion(nextQuestion);
+    } else {
+      setShowScore(true);
+    }
+  };
 
   return (
     <>
       <div className="demo-con alphabet-con">
         <button onClick={() => navigate(-1)}>뒤로가기</button>
-        {pathh ? console.log("yes" + pathh) : console.log("no")}
+
+        {pathh
+          ? console.log("yes" + pathh + isMatchPath.params.pathname)
+          : console.log("nopooo")}
 
         {letters.letter
-          .filter((word) => word.lettername.startsWith("A"))
+          .filter((word) => word.lettername == isMatchPath.params.pathname)
           .map((item) => {
             return (
               <>
@@ -76,6 +131,31 @@ const TestLetter = () => {
               </>
             );
           })}
+
+        <div className="letter-test-con objective">
+          {showScore ? (
+            <section className="showScore-section">
+              {QuestionBox.length}개 중에서 {score}개나 맞추셨네요!
+            </section>
+          ) : (
+            <>
+              <section className="question-section">
+                <h1 style={{ marginLeft: "auto" }}>
+                  문제 {currentQuestion + 1}/{QuestionBox.length}
+                </h1>
+                <p>{QuestionBox[currentQuestion].questionText}</p>
+              </section>
+
+              <section className="answer-section">
+                {QuestionBox[currentQuestion].answerOptions.map((item) => (
+                  <button onClick={() => handleClick(item.isCorrect)}>
+                    {item.answerText}
+                  </button>
+                ))}
+              </section>
+            </>
+          )}
+        </div>
       </div>
     </>
   );

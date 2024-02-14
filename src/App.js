@@ -34,7 +34,7 @@ import LetterZ from "./pages/alphabets/LetterZ";
 import TodoTest from "./TodoTest";
 
 import LetterContainer from "./pages/letters/LetterContainer";
-import LetterCon from "./pages/LetterCon";
+import TestLetter from "./pages/alphabets/TestLetter";
 
 import Header from "./components/Header";
 import About from "./About";
@@ -80,34 +80,33 @@ function App() {
           <Route path="/SignIn" exact element={<SignIn />} />
           <Route path="/A" exact element={<LetterA />} />
           <Route path="/B" exact element={<LetterB />} />
-          <Route path="/alphabetCon/C" exact element={<LetterC />} />
-          <Route path="/alphabetCon/D" exact element={<LetterD />} />
-          <Route path="/alphabetCon/E" exact element={<LetterE />} />
-          <Route path="/alphabetCon/F" exact element={<LetterF />} />
-          <Route path="/alphabetCon/G" exact element={<LetterG />} />
-          <Route path="/alphabetCon/H" exact element={<LetterH />} />
-          <Route path="/alphabetCon/I" exact element={<LetterI />} />
-          <Route path="/alphabetCon/J" exact element={<LetterJ />} />
-          <Route path="/alphabetCon/K" exact element={<LetterK />} />
-          <Route path="/alphabetCon/L" exact element={<LetterL />} />
-          <Route path="/alphabetCon/M" exact element={<LetterM />} />
-          <Route path="/alphabetCon/N" exact element={<LetterN />} />
-          <Route path="/alphabetCon/O" exact element={<LetterO />} />
-          <Route path="/alphabetCon/P" exact element={<LetterP />} />
-          <Route path="/alphabetCon/Q" exact element={<LetterQ />} />
-          <Route path="/alphabetCon/R" exact element={<LetterR />} />
-          <Route path="/alphabetCon/S" exact element={<LetterS />} />
-          <Route path="/alphabetCon/T" exact element={<LetterT />} />
-          <Route path="/alphabetCon/U" exact element={<LetterU />} />
-          <Route path="/alphabetCon/V" exact element={<LetterV />} />
-          <Route path="/alphabetCon/W" exact element={<LetterW />} />
-          <Route path="/alphabetCon/X" exact element={<LetterX />} />
-          <Route path="/alphabetCon/Y" exact element={<LetterY />} />
-          <Route path="/alphabetCon/Z" exact element={<LetterZ />} />
+          <Route path="/C" exact element={<LetterC />} />
+          <Route path="/D" exact element={<LetterD />} />
+          <Route path="/E" exact element={<LetterE />} />
+          <Route path="/F" exact element={<LetterF />} />
+          <Route path="/G" exact element={<LetterG />} />
+          <Route path="/H" exact element={<LetterH />} />
+          <Route path="/I" exact element={<LetterI />} />
+          <Route path="/J" exact element={<LetterJ />} />
+          <Route path="/K" exact element={<LetterK />} />
+          <Route path="/L" exact element={<LetterL />} />
+          <Route path="/M" exact element={<LetterM />} />
+          <Route path="/N" exact element={<LetterN />} />
+          <Route path="/O" exact element={<LetterO />} />
+          <Route path="/P" exact element={<LetterP />} />
+          <Route path="/Q" exact element={<LetterQ />} />
+          <Route path="/R" exact element={<LetterR />} />
+          <Route path="/S" exact element={<LetterS />} />
+          <Route path="/T" exact element={<LetterT />} />
+          <Route path="/U" exact element={<LetterU />} />
+          <Route path="/V" exact element={<LetterV />} />
+          <Route path="/W" exact element={<LetterW />} />
+          <Route path="/X" exact element={<LetterX />} />
+          <Route path="/Y" exact element={<LetterY />} />
+          <Route path="/Z" exact element={<LetterZ />} />
           <Route path="/alphabetsection/" exact element={<AlphabetSection />} />
           <Route path="/zz/:id" exact element={<Conn />} />
-          <Route path="/con" exact element={<LetterCon />} />
-
+          <Route path="/:letter" element={<TestLetter />} />
           <Route path="/todotest/" exact element={<TodoTest />} />
           <Route path="/lettercon" exact element={<LetterContainer />} />
           <Route path="/datatest" exact element={<About />} />

@@ -20,7 +20,7 @@ const LetterB = () => {
   const [showScore, setShowScore] = useState(false);
   const location = useLocation();
 
-  console.log(location.pathname);
+  // console.log(location.pathname);
   const pathh = location.pathname;
 
   const isMatchPath = useMatch("/:pathname");
@@ -29,7 +29,7 @@ const LetterB = () => {
     if (isMatchPath) {
       console.log(isMatchPath.params.pathname);
     }
-  }, [isMatchPath]);
+  }, []);
 
   const handleClick = (isCorrect) => {
     if (isCorrect) {
@@ -48,12 +48,11 @@ const LetterB = () => {
     <>
       <div className="demo-con alphabet-con">
         <button onClick={() => navigate(-1)}>뒤로가기</button>
-        {pathh ? console.log("yes" + pathh) : console.log("no")}
-        {letters.letter.filter((w) =>
-          pathh == w.lettername
-            ? console.log("y" + pathh)
-            : console.log("n" + pathh)
-        )}
+
+        {pathh
+          ? console.log("yes" + pathh + isMatchPath.params.pathname)
+          : console.log("nopooo")}
+
         {letters.letter
           .filter((word) => word.lettername.startsWith("B"))
           .map((item) => {
