@@ -14,16 +14,27 @@ const LetterA = () => {
   }
 
   const navigate = useNavigate();
-
-  const [obj, setObj] = useState("");
-  const [list, setList] = useState([]);
-
   function inputt(e) {
     setObj(e.target.value);
   }
   function handleClick() {
     setList((list) => [...list, obj]);
   }
+  const [obj, setObj] = useState("");
+  const [list, setList] = useState([]);
+
+  useEffect(() => {
+    const storedList = localStorage.getItem("test");
+    if (storedList) {
+      setList(JSON.parse(storedList));
+    }
+  }, []);
+
+  useEffect(() => {
+    if (list.length > 0) {
+      localStorage.setItem("test", JSON.stringify(list));
+    }
+  }, [list]);
 
   const location = useLocation();
 
