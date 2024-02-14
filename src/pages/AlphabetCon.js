@@ -5,7 +5,6 @@ import letters from "../data/letters.json";
 
 import LetterA from "./alphabets/LetterA";
 import LetterB from "./alphabets/LetterB";
-
 const componentMapping = {
   "/A": LetterA,
   "/B": LetterB,
@@ -24,10 +23,10 @@ const AlphabetCon = (tt) => {
 
   return (
     <div className="demo-con alpha">
+      {" "}
       <button onClick={() => navigate(-1)}>뒤로가기</button>
       <h1>알파벳 목록</h1>
       <Tutorial name={tt} />
-
       <div className="alphabet-lists">
         {letters.letter.map((letter) => {
           const isClick = click === letter.lettername;

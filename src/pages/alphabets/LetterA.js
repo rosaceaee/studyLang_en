@@ -4,14 +4,8 @@ import { useState, useEffect } from "react";
 import { QuestionBox } from "../../components/QuestionBox";
 import { useNavigate, useLocation, useMatch } from "react-router-dom";
 import letters from "../../data/letters.json";
-
 const LetterA = () => {
   const [value, setValue] = useState("");
-  function handle() {
-    return value === "어"
-      ? { return: alert("정답입니다!") }
-      : { return: alert("다시한번!") };
-  }
 
   function inputt(e) {
     setObj(e.target.value);
@@ -36,13 +30,8 @@ const LetterA = () => {
   }, [list]);
 
   const navigate = useNavigate();
-
-  const [currentQuestion, setCurrentQuestion] = useState(0);
-  const [score, setScore] = useState(0);
-  const [showScore, setShowScore] = useState(false);
   const location = useLocation();
 
-  // console.log(location.pathname);
   const pathh = location.pathname;
 
   const isMatchPath = useMatch("/:pathname");
@@ -53,15 +42,39 @@ const LetterA = () => {
     }
   }, []);
 
+  // tutorial last
+
+  const [tuto, setTuto] = useState(true);
+  const [highlightedIndex, setHighlightedIndex] = useState(0);
+
+  const accentDom = () => {
+    setHighlightedIndex((prevIndex) => (prevIndex + 1) % 4);
+  };
+
+  useEffect(() => {
+    const localsto = localStorage.getItem("checked");
+    if (localsto) {
+      setTuto(false);
+    }
+  }, []);
+
+  const ischecked = () => {
+    localStorage.setItem("checked", true);
+    setTuto(false);
+  };
+
   return (
     <>
-      <div className="demo-con alphabet-con">
+      <div className="demo-con alphabet-con" onClick={accentDom}>
+        {tuto && (
+          <div className="tutorial-con">
+            <div className="tuto-wrap">
+              <button onClick={ischecked}>확인했습니다.</button>
+            </div>
+          </div>
+        )}
+
         <button onClick={() => navigate(-1)}>뒤로가기</button>
-
-        {pathh
-          ? console.log("yes" + pathh + isMatchPath.params.pathname)
-          : console.log("nopooo")}
-
         {letters.letter
           .filter((word) =>
             word.lettername.startsWith(isMatchPath.params.pathname)
@@ -70,20 +83,36 @@ const LetterA = () => {
             return (
               <>
                 {" "}
-                <h1>{item.lettername}</h1>
-                <div className="pronunciation-con">
-                  <h3 className="header">발음은 어떻게 해야할까요?</h3>
-                  <div>
-                    <h3>{item.pronounce[0]}</h3>
-                  </div>
-                  <div>
-                    <h3>{item.pronounce[1]}</h3>{" "}
-                  </div>
-                  <div>
-                    <h3>{item.pronounce[2]}</h3>
+                <h1 className={highlightedIndex === 0 ? "highlighted" : ""}>
+                  {item.lettername}
+                </h1>
+                <div
+                  className={
+                    highlightedIndex === 1
+                      ? "pronunciation-con highlighted"
+                      : "pronunciation-con"
+                  }
+                >
+                  <div className="pronunciation-wrap">
+                    <h3 className="header">발음은 어떻게 해야할까요?</h3>
+                    <div>
+                      <h3>{item.pronounce[0]}</h3>
+                    </div>
+                    <div>
+                      <h3>{item.pronounce[1]}</h3>{" "}
+                    </div>
+                    <div>
+                      <h3>{item.pronounce[2]}</h3>
+                    </div>
                   </div>
                 </div>
-                <div className="practice-con">
+                <div
+                  className={
+                    highlightedIndex === 2
+                      ? "practice-con highlighted"
+                      : "practice-con"
+                  }
+                >
                   <h3 className="header">예문을 보며 읽어보기.</h3>
                   <div className="practice-wrap">
                     <h3>

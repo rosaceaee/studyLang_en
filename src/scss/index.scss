@@ -198,6 +198,19 @@ button {
     }
 
     .pronunciation-con {
+      &.highlighted {
+        position: relative;
+        &::before {
+          content: "알파벳에 맞는 한글입니다.";
+          position: absolute;
+          width: 100%;
+          height: 25px;
+          top: -2rem;
+        }
+      }
+    }
+
+    .pronunciation-wrap {
       width: 90%;
       overflow: auto;
       display: flex;
@@ -272,6 +285,55 @@ button {
       button {
         font-size: 1.3rem;
         padding: 0.5rem 1rem;
+      }
+    }
+  }
+  .highlighted {
+    z-index: 999;
+    transition: all 0.3s ease;
+    border: 3px solid rgb(211, 239, 49);
+    background-color: #fff;
+  }
+  .tutorial-con {
+    background: rgba(0, 0, 0, 0.4);
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    * {
+      color: #fff;
+    }
+
+    div.tuto-wrap {
+      text-align: left;
+      line-height: 1.7;
+      padding: 0 0.3rem 1rem 0;
+
+      h1 {
+        text-align: center;
+        padding: 1rem 0;
+      }
+      span.white {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        color: #369;
+        background: #fff;
+        width: 5rem;
+        height: auto;
+        border-radius: 0.1rem;
+        padding: 0.5rem;
+        text-align: center;
+        font-weight: 600;
+      }
+
+      button {
+        margin-left: auto;
+        margin-bottom: 1rem;
+        display: block;
+        color: #333;
       }
     }
   }
