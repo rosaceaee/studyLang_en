@@ -13,6 +13,28 @@ const LetterB = () => {
       : { return: alert("다시한번!") };
   }
 
+  function inputt(e) {
+    setObj(e.target.value);
+  }
+  function handleClick() {
+    setList((list) => [...list, obj]);
+  }
+  const [obj, setObj] = useState("");
+  const [list, setList] = useState([]);
+
+  useEffect(() => {
+    const storedList = localStorage.getItem("word-b");
+    if (storedList) {
+      setList(JSON.parse(storedList));
+    }
+  }, []);
+
+  useEffect(() => {
+    if (list.length > 0) {
+      localStorage.setItem("word-b", JSON.stringify(list));
+    }
+  }, [list]);
+
   const navigate = useNavigate();
 
   const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -30,19 +52,6 @@ const LetterB = () => {
       console.log(isMatchPath.params.pathname);
     }
   }, []);
-
-  const handleClick = (isCorrect) => {
-    if (isCorrect) {
-      setScore(score + 1);
-    }
-
-    const nextQuestion = currentQuestion + 1;
-    if (nextQuestion < QuestionBox.length) {
-      setCurrentQuestion(nextQuestion);
-    } else {
-      setShowScore(true);
-    }
-  };
 
   return (
     <>
@@ -101,6 +110,22 @@ const LetterB = () => {
                       <span className="otherletters">ㄹ</span>
                     </h3>
                   </div>
+
+                  {list.map((ii, index) => {
+                    return (
+                      <>
+                        <div className="practice-wrap">
+                          <p key={index}>{ii}</p>
+                        </div>
+                      </>
+                    );
+                  })}
+                </div>
+                <div>
+                  <input type="text" value={obj} onChange={inputt}></input>
+                  <button type="submit" onClick={handleClick}>
+                    basdfdsafb
+                  </button>
                 </div>
               </>
             );
