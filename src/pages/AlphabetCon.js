@@ -3,14 +3,6 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import Tutorial from "./Tutorial";
 import letters from "../data/letters.json";
 
-import LetterA from "./alphabets/LetterA";
-import LetterB from "./alphabets/LetterB";
-const componentMapping = {
-  "/A": LetterA,
-  "/B": LetterB,
-  // Add other pathnames and corresponding components here
-};
-
 const AlphabetCon = (tt) => {
   const [click, setClick] = useState(null);
   const currLocation = useLocation();
@@ -24,7 +16,7 @@ const AlphabetCon = (tt) => {
   return (
     <div className="demo-con alpha">
       {" "}
-      <h1 style={{ paddingTop: "2rem" }}>알파벳 목록</h1>
+      <h1 style={{ paddingTop: "2rem", marginTop: "0" }}>알파벳 목록</h1>
       <Tutorial name={tt} />
       <div className="alphabet-lists">
         {letters.letter.map((letter) => {
