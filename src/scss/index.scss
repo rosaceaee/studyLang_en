@@ -36,9 +36,10 @@ button {
 
 .demo-con {
   width: 100%;
-  height: 100vh;
+  min-height: 100dvh;
   color: #369;
   background: #ffe4d2;
+  height: 100%;
 
   h1 {
     font-family: "twayair";
