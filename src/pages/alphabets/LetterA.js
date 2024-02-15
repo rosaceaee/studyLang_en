@@ -42,44 +42,9 @@ const LetterA = () => {
     }
   }, []);
 
-  // tutorial last
-
-  const [tuto, setTuto] = useState(true);
-  const [highlightedIndex, setHighlightedIndex] = useState(0);
-
-  const accentDom = () => {
-    setHighlightedIndex((prevIndex) => (prevIndex + 1) % 5);
-  };
-
-  useEffect(() => {
-    const localsto = localStorage.getItem("checked");
-    if (localsto) {
-      setTuto(false);
-    }
-  }, []);
-
-  const ischecked = () => {
-    localStorage.setItem("checked", true);
-    setTuto(false);
-  };
-
   return (
     <>
-      <div className="demo-con alphabet-con" onClick={accentDom}>
-        {tuto && (
-          <div className="tutorial-con">
-            <div className="tuto-wrap">
-              <h1 className="next">다음</h1>
-              <button
-                className={highlightedIndex === 4 ? " highlighted" : "hide"}
-                onClick={ischecked}
-              >
-                화면 안내 종료
-              </button>
-            </div>
-          </div>
-        )}
-
+      <div className="demo-con alphabet-con">
         <button onClick={() => navigate(-1)}>뒤로가기</button>
         {letters.letter
           .filter((word) =>
@@ -89,16 +54,8 @@ const LetterA = () => {
             return (
               <>
                 {" "}
-                <h1 className={highlightedIndex === 0 ? "highlighted" : ""}>
-                  {item.lettername}
-                </h1>
-                <div
-                  className={
-                    highlightedIndex === 1
-                      ? "pronunciation-con highlighted"
-                      : "pronunciation-con"
-                  }
-                >
+                <h1>{item.lettername}</h1>
+                <div className="pronunciation-con">
                   <div className="pronunciation-wrap">
                     <h3 className="header">발음은 어떻게 해야할까요?</h3>
                     <div>
@@ -112,13 +69,7 @@ const LetterA = () => {
                     </div>
                   </div>
                 </div>
-                <div
-                  className={
-                    highlightedIndex === 2
-                      ? "practice-con highlighted"
-                      : "practice-con"
-                  }
-                >
+                <div className="practice-con">
                   <h3 className="header">예문을 보며 읽어보기.</h3>
                   <div className="practice-wrap">
                     <h3>
@@ -158,13 +109,7 @@ const LetterA = () => {
                     );
                   })}
                 </div>{" "}
-                <div
-                  className={
-                    highlightedIndex === 3
-                      ? "add-container highlighted"
-                      : "add-container"
-                  }
-                >
+                <div className="add-container">
                   <div className="add-wrap">
                     <input type="text" value={obj} onChange={inputt}></input>
                     <button type="submit" onClick={handleClick}>

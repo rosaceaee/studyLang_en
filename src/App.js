@@ -32,6 +32,7 @@ import LetterX from "./pages/alphabets/LetterX";
 import LetterY from "./pages/alphabets/LetterY";
 import LetterZ from "./pages/alphabets/LetterZ";
 import TodoTest from "./TodoTest";
+import LetterTutorial from "./pages/alphabets/LetterTutorial";
 
 import LetterContainer from "./pages/letters/LetterContainer";
 import TestLetter from "./pages/alphabets/TestLetter";
@@ -78,6 +79,7 @@ function App() {
           <Route path="/alphabetCon" exact element={<AlphabetCon />} />
           <Route path="/AlphabetsMain" exact element={<AlphabetsMain />} />
           <Route path="/SignIn" exact element={<SignIn />} />
+          <Route path="/lettertuto" exact element={<LetterTutorial />} />
           <Route path="/A" exact element={<LetterA />} />
           <Route path="/B" exact element={<LetterB />} />
           <Route path="/C" exact element={<LetterC />} />
