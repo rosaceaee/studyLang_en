@@ -218,6 +218,7 @@ button {
     h3.header {
       text-align: center;
       font-size: 1.4rem;
+      margin-bottom: 2rem;
     }
 
     .pronunciation-con {
@@ -250,10 +251,22 @@ button {
       background: #fff;
       border-radius: 20px;
 
+      h3.header {
+        text-align: center;
+        font-size: 1.4rem;
+        margin-bottom: 1rem;
+        width: 100%;
+        background: beige;
+        padding: 1rem 0;
+        font-weight: 700;
+      }
+
       div {
-        margin: 0.5rem 0;
+        margin: 0.5rem;
+        width: calc(100% - 1rem);
         h3 {
           font-size: 1.2rem;
+          text-align: center;
         }
       }
     }
@@ -329,7 +342,6 @@ button {
 
     .add-container {
       width: 100%;
-
       height: 13%;
       display: flex;
       justify-content: center;
@@ -346,6 +358,7 @@ button {
         text-align: center;
         position: absolute;
         top: -1rem;
+        padding: 1rem;
       }
 
       .add-wrap {
@@ -359,7 +372,7 @@ button {
         }
 
         input {
-          width: 10rem;
+          width: 12rem;
         }
 
         button {

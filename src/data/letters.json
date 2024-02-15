@@ -8,132 +8,135 @@
     {
       "id": 2,
       "lettername": "B",
-      "pronounce": ["sds아", "애", "어"]
+      "pronounce": ["ㅂ 자음", "ㅂ 받침"]
     },
     {
       "id": 3,
       "lettername": "C",
-      "pronounce": ["sdddddds아", "애", "어"]
+      "pronounce": ["ㅋ 자음", "ㅋ 받침"]
     },
     {
       "id": 4,
       "lettername": "D",
-      "pronounce": ["sds아", "애", "어"]
+      "pronounce": ["ㄷ 자음", "가끔은 묵음(예: handsome[핸섬])"]
     },
     {
       "id": 5,
       "lettername": "E",
-      "pronounce": ["sds아", "애", "어"]
+      "pronounce": ["ㅇ 모음", "에", "이"]
     },
     {
       "id": 6,
       "lettername": "f",
-      "pronounce": ["sds아", "애", "어"]
+      "pronounce": ["ㅍ 자음", "ㅎ 자음"]
     },
     {
       "id": 7,
       "lettername": "g",
-      "pronounce": ["sds아", "애", "어"]
+      "pronounce": ["ㅈ 자음", "ㄱ 자음", "ㄱ 받침"]
     },
     {
       "id": 8,
       "lettername": "H",
-      "pronounce": ["sds아", "애", "어"]
+      "pronounce": ["ㅎ 자음", "가끔은 묵음(예: hour[아워, 시(時)]"]
     },
     {
       "id": 9,
       "lettername": "I",
-      "pronounce": ["sds아", "애", "어"]
+      "pronounce": ["아이, 이"]
     },
     {
       "id": 10,
-      "lettername": "j",
-      "pronounce": ["sds아", "애", "어"]
+      "lettername": "J",
+      "pronounce": ["ㅈ 자음"]
     },
     {
       "id": 11,
-      "lettername": "k",
-      "pronounce": ["sds아", "애", "어"]
+      "lettername": "K",
+      "pronounce": ["ㅋ 자음", "가끔은 묵음(예: knife[나이프])"]
     },
     {
       "id": 12,
       "lettername": "L",
-      "pronounce": ["sds아", "애", "어"]
+      "pronounce": ["ㄹ 자음", "ㄹ 받침"]
     },
     {
       "id": 13,
       "lettername": "M",
-      "pronounce": ["sds아", "애", "어"]
+      "pronounce": ["ㅁ 자음", "ㅁ 받침"]
     },
     {
       "id": 14,
       "lettername": "N",
-      "pronounce": ["sds아", "애", "어"]
+      "pronounce": ["ㄴ 자음", "ㄴ 받침"]
     },
     {
       "id": 15,
       "lettername": "O",
-      "pronounce": ["sds아", "애", "어"]
+      "pronounce": ["ㅇ 자음", "오"]
     },
     {
       "id": 16,
-      "lettername": "k",
-      "pronounce": ["sds아", "애", "어"]
+      "lettername": "P",
+      "pronounce": ["ㅍ 자음", "ㅍ 받침"]
     },
     {
       "id": 17,
-      "lettername": "P",
-      "pronounce": ["sds아", "애", "어"]
+      "lettername": "Q",
+      "pronounce": ["ㅋ 자음", "ㅋ 받침"]
     },
     {
       "id": 18,
-      "lettername": "Q",
-      "pronounce": ["sds아", "애", "어"]
+      "lettername": "R",
+      "pronounce": ["ㄹ 자음", "가끔은 묵음,장음(예: star[스타])"]
     },
     {
       "id": 19,
-      "lettername": "R",
-      "pronounce": ["sds아", "애", "어"]
+      "lettername": "S",
+      "pronounce": ["ㄴ 자음", "단어의 맨 끝에 있을 경우 '스' - yes[예스]"]
     },
     {
       "id": 20,
-      "lettername": "S",
-      "pronounce": ["sds아", "애", "어"]
+      "lettername": "T",
+      "pronounce": ["ㅌ 자음", "ㅌ 받침"]
     },
     {
       "id": 21,
-      "lettername": "T",
-      "pronounce": ["sds아", "애", "어"]
+      "lettername": "U",
+      "pronounce": ["맨 처음에 위치할 경우 우, 유"]
     },
     {
       "id": 22,
-      "lettername": "U",
-      "pronounce": ["sds아", "애", "어"]
+      "lettername": "V",
+      "pronounce": ["ㅍ 자음", "ㅂ 자음"]
     },
     {
       "id": 23,
-      "lettername": "V",
-      "pronounce": ["sds아", "애", "어"]
+      "lettername": "W",
+      "pronounce": [
+        "ㅇ 자음",
+        "단어 사이에 있을 경우 ㅞ로 읽힘. 예: twenty[트웬티]"
+      ]
     },
     {
       "id": 24,
-      "lettername": "W",
-      "pronounce": ["sds아", "애", "어"]
+      "lettername": "X",
+      "pronounce": [
+        "맨 처음에 위치할 경우: 자, 예: xylophone[자일로폰: 실로폰]"
+      ]
     },
     {
       "id": 25,
-      "lettername": "X",
-      "pronounce": ["sds아", "애", "어"]
+      "lettername": "Y",
+      "pronounce": ["이, 예: Yiest[이스트], why[와이], cycle[사이클]"]
     },
     {
       "id": 26,
-      "lettername": "Y",
-      "pronounce": ["sds아", "애", "어"]
-    },
-    {
-      "id": 27,
       "lettername": "Z",
-      "pronounce": ["sds아", "애", "어"]
+      "pronounce": [
+        "맨 처음에 위치할 경우: 지, 예: zebra[지브라, 얼룩말]",
+        "맨 마지막에 위치할 경우: 즈, 예: quiz[퀴즈]"
+      ]
     }
   ]
 }
