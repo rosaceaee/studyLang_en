@@ -24,7 +24,6 @@ const AlphabetCon = (tt) => {
   return (
     <div className="demo-con alpha">
       {" "}
-      <button onClick={() => navigate(-1)}>뒤로가기</button>
       <h1>알파벳 목록</h1>
       <Tutorial name={tt} />
       <div className="alphabet-lists">
