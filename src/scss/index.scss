@@ -202,7 +202,7 @@ button {
         border: none;
         background: #369;
         color: #fff;
-        border-radius: 5px;
+        border-radius: 0;
       }
     }
 
@@ -218,6 +218,7 @@ button {
     }
 
     .pronunciation-con {
+      display: flex;
       &.highlighted {
         position: relative;
         &::before {
@@ -255,6 +256,12 @@ button {
 
     .practice-con {
       margin: 2rem auto 6rem;
+      padding: 1rem 0 3rem;
+      max-width: 340px;
+      width: 100%;
+      border: 2px solid;
+      display: flex;
+      flex-direction: column;
       &.highlighted {
         position: relative;
         &::before {
@@ -278,14 +285,25 @@ button {
     .practice-wrap {
       border-radius: 20px;
       margin: 0.5rem 1rem;
-      padding: 1rem 2rem;
+      padding: 1rem;
       background: #fff;
+
+      &.add {
+        display: flex;
+        justify-content: space-between;
+        button {
+          color: #fff;
+          background: #369;
+          padding: 0.4rem;
+          border: none;
+        }
+      }
 
       h3 {
         &:nth-child(1) {
-          font-size: 2rem;
+          font-size: 1.3rem;
           color: #333;
-
+          letter-spacing: 0.1rem;
           span.read-eng {
             font-size: 2.2rem;
             color: hotpink;
@@ -306,7 +324,7 @@ button {
 
     .add-container {
       width: 100%;
-      height: 10dvh;
+      height: 13%;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -321,7 +339,7 @@ button {
         font-weight: 600;
         text-align: center;
         position: absolute;
-        top: -1.4rem;
+        top: -13px;
       }
 
       .add-wrap {
@@ -329,6 +347,12 @@ button {
         button {
           font-size: 1.3rem;
           padding: 0.5rem 1rem;
+        }
+
+        button {
+          color: #fff;
+          background: #369;
+          border: 2px solid #369;
         }
       }
     }

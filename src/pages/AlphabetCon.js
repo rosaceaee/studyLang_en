@@ -24,7 +24,7 @@ const AlphabetCon = (tt) => {
   return (
     <div className="demo-con alpha">
       {" "}
-      <h1>알파벳 목록</h1>
+      <h1 style={{ paddingTop: "2rem" }}>알파벳 목록</h1>
       <Tutorial name={tt} />
       <div className="alphabet-lists">
         {letters.letter.map((letter) => {

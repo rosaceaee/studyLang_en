@@ -42,7 +42,7 @@ const LetterA = () => {
     }
   }, []);
 
-  const handleRemove = (index) => {
+  const removebtn = (index) => {
     const updatedList = [...list];
     updatedList.splice(index, 1);
     setList(updatedList);
@@ -91,9 +91,7 @@ const LetterA = () => {
                       <>
                         <div className="practice-wrap add">
                           <h3 key={index}>{ii}</h3>
-                          <button onClick={() => handleRemove(index)}>
-                            삭제
-                          </button>
+                          <button onClick={() => removebtn(index)}>삭제</button>
                         </div>
                       </>
                     );
