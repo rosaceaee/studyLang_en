@@ -42,6 +42,12 @@ const LetterA = () => {
     }
   }, []);
 
+  const handleRemove = (index) => {
+    const updatedList = [...list];
+    updatedList.splice(index, 1);
+    setList(updatedList);
+    localStorage.setItem("a", JSON.stringify(updatedList));
+  };
   return (
     <>
       <div className="demo-con alphabet-con">
@@ -80,30 +86,14 @@ const LetterA = () => {
                     </h3>
                   </div>
 
-                  <div className="practice-wrap">
-                    <h3>
-                      <span className="read-eng">A</span>pple
-                    </h3>
-                    <h3 className="read-kor">
-                      애 <span className="otherletters"> 플</span>
-                    </h3>
-                  </div>
-
-                  <div className="practice-wrap">
-                    <h3>
-                      du<span className="read-eng">A</span>l
-                    </h3>
-                    <h3 className="read-kor">
-                      <span className="otherletters"> 듀</span> 어{" "}
-                      <span className="otherletters">ㄹ</span>
-                    </h3>
-                  </div>
-
                   {list.map((ii, index) => {
                     return (
                       <>
                         <div className="practice-wrap add">
                           <h3 key={index}>{ii}</h3>
+                          <button onClick={() => handleRemove(index)}>
+                            삭제
+                          </button>
                         </div>
                       </>
                     );
