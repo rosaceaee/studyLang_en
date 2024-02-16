@@ -27,7 +27,7 @@ const LetterContainer = () => {
 
         {/*  */}
         <div className="practice-con">
-          <h3 className="header">예문을 보며 읽어보기.</h3>
+          <h3 className="header">단어장.</h3>
         </div>
       </div>
     </>

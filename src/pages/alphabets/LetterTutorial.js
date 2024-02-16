@@ -134,7 +134,7 @@ const LetterTutorial = () => {
                           : "practice-con timid"
                       }
                     >
-                      <h3 className="header">예문을 보며 읽어보기.</h3>
+                      <h3 className="header">단어장.</h3>
                       <div
                         className={
                           highlightedIndex === 2
