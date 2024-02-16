@@ -16,8 +16,6 @@ export const Contextt = createContext({
   setList: () => [],
 });
 const LetterNew = () => {
-  const [obj, setObj] = useState("");
-  const [list, setList] = useState([""]);
   const [data, setData] = useState({});
 
   const params = useParams();
@@ -36,7 +34,7 @@ const LetterNew = () => {
   }, []);
   return (
     <>
-      <Contextt.Provider value={{ obj, setObj, list, setList }}>
+      <Contextt.Provider>
         <div className="alphabet-lists">
           {letters.letter.map((letter) => {
             const isClick = click === letter.lettername;
