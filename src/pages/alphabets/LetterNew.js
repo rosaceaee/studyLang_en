@@ -32,7 +32,7 @@ const LetterNew = () => {
   useEffect(() => {
     fetch(`./letternew/${params.lettername}`)
       .then((res) => res.json)
-      .then((res) => setData(data.results));
+      .then((data) => setData(data.results));
   }, []);
   return (
     <>
@@ -49,7 +49,7 @@ const LetterNew = () => {
                     pathname: `./ll/${letter.lettername}`,
                     state: {
                       from: currLocation.pathname,
-                      pronounce: letter.pronounce[0],
+                      pronounce: letter.pronounce,
                     },
                   }}
                   onClick={() => clickEvt(letter.lettername)}

@@ -1,16 +1,27 @@
-import React, { useContext } from "react";
-import { Contextt } from "./LetterNew";
-import { useParams } from "react-router-dom";
+import React from "react";
 
-const Letterrr = () => {
+import { useState, useEffect, useContext, createContext } from "react";
+import {
+  useNavigate,
+  useLocation,
+  useMatch,
+  useParams,
+  Link,
+} from "react-router-dom";
+import { Contextt } from "./LetterNew";
+import letters from "../../data/letters.json";
+
+const Letterrr = (props) => {
   const { obj, setObj, list, setList } = useContext(Contextt);
-  const { lettername, pronounce } = useParams(); // useParams로 추출한 lettername과 pronounce 값을 추출
+  const { params, lettername } = useParams();
+
+  const letter = letters.letter.find((item) => item.lettername === lettername);
+  const pronounce = letter ? letter.pronounce : null;
 
   return (
     <>
-      <h1>second {list}</h1>
-      <h1>zzz {lettername}</h1>
-      <h1>{pronounce}</h1>
+      <h2>{lettername}</h2>
+      <h1>Pronounce: {pronounce}</h1>
     </>
   );
 };
