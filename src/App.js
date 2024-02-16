@@ -32,6 +32,9 @@ import LetterX from "./pages/alphabets/LetterX";
 import LetterY from "./pages/alphabets/LetterY";
 import LetterZ from "./pages/alphabets/LetterZ";
 import TodoTest from "./TodoTest";
+
+import LetterNew from "./pages/alphabets/LetterNew";
+import Letterrr from "./pages/alphabets/Letterrr";
 import LetterTutorial from "./pages/alphabets/LetterTutorial";
 
 import LetterContainer from "./pages/letters/LetterContainer";
@@ -106,6 +109,13 @@ function App() {
           <Route path="/X" exact element={<LetterX />} />
           <Route path="/Y" exact element={<LetterY />} />
           <Route path="/Z" exact element={<LetterZ />} />
+          <Route path="/letternew/" exact element={<LetterNew />} />
+          <Route
+            path="/letternew/ll/:lettername"
+            exact
+            element={<Letterrr />}
+          />
+
           <Route path="/alphabetsection/" exact element={<AlphabetSection />} />
           <Route path="/zz/:id" exact element={<Conn />} />
           <Route path="/te/:idd" element={<TestLetter />} />
