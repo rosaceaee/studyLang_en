@@ -50,6 +50,7 @@ button {
       padding: 1rem 0;
     }
     &:after {
+      font-family: "Pretendard-Regular";
       font-size: 1rem;
       content: "학습 알파벳입니다.";
       position: absolute;
@@ -286,8 +287,8 @@ button {
           content: "학습 단어 읽는 연습을 합니다. 아래에 단어를 추가하여 메모할 수 있습니다. 보이지 않을 경우 화면을 아래로 내려보세요.";
           position: absolute;
           width: 57%;
-          height: 9rem;
-          bottom: 0;
+          height: 7rem;
+          bottom: -5rem;
           right: 0;
           line-height: 1.7;
           padding: 0.4rem;
@@ -303,7 +304,7 @@ button {
     .practice-wrap {
       border-radius: 20px;
       margin: 0.5rem 1rem;
-      padding: 1rem;
+      padding: 1rem 1rem;
       background: #fff;
 
       &.add {
@@ -349,37 +350,178 @@ button {
       position: fixed;
       bottom: 0;
       background-color: #fff;
-
+      /*
       &:before {
         background-color: #fff;
         width: 100%;
-        content: "단어를 써서 입력해봅시다";
+       // content: "단어를 써서 입력해봅시다";
         font-weight: 600;
         text-align: center;
         position: absolute;
         top: -2rem;
         padding: 1rem;
-      }
+      }*/
 
       .add-wrap {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
+        display: flex;
+        flex-direction: column;
         padding: 0 3rem;
-        input,
-        button {
-          font-size: 1.1rem;
-          padding: 0.5rem 1rem;
+        height: 100%;
+        h3 {
+          padding-top: 0.2rem;
+          text-align: center;
+        }
+        .wrap {
+          display: grid;
+          grid-template-columns: 1fr auto;
+          input,
+          button {
+            font-size: 1.1rem;
+            padding: 0.5rem 1rem;
+          }
+
+          input {
+            width: 12rem;
+          }
+
+          button {
+            color: #fff;
+            background: #369;
+            border: 2px solid #369;
+            width: 4.5rem;
+          }
+        }
+      }
+    }
+
+    //@at-root
+    .tutorial-con {
+      background: rgba(0, 0, 0, 0.6);
+      width: 100%;
+      height: 100vh;
+      position: fixed;
+      top: 0;
+      left: 0;
+
+      h1 {
+        margin: 0;
+        padding: 0;
+      }
+
+      &.first {
+        background: transparent;
+      }
+
+      * {
+        color: #333;
+      }
+
+      div.tuto-wrap {
+        text-align: left;
+        line-height: 1.7;
+        padding: 0 0em 1rem 0;
+        .box {
+          background: beige;
+
+          a {
+            max-width: 10rem;
+            border: 1px solid;
+            text-align: center;
+            display: inline-block;
+            padding: 0 0.3rem;
+            position: absolute;
+            right: 1rem;
+          }
+        }
+        h1 {
+          text-align: center;
+          padding: 1rem 0;
+
+          &.first {
+            margin: 0 auto;
+            background: beige;
+            width: 100%;
+            font-size: 1.1rem;
+            padding: 0.3rem 0;
+          }
+
+          &.next {
+            font-size: 1.2rem;
+            border: 1px solid;
+          }
         }
 
-        input {
-          width: 12rem;
+        .hide {
+          opacity: 0;
+          margin: 0;
+          padding: 0;
+        }
+
+        span.white {
+          display: inline-flex;
+          justify-content: center;
+          align-items: center;
         }
 
         button {
-          color: #fff;
-          background: #369;
-          border: 2px solid #369;
-          width: 4.5rem;
+          margin-left: auto;
+          margin-bottom: 1rem;
+          display: block;
+          color: #333;
+
+          &.highlighted {
+            z-index: 999;
+            transition: all 0.3s ease;
+            border: 3px solid rgb(211, 239, 49);
+            padding: 1rem 1.1rem;
+            font-size: 1rem;
+            font-weight: 700;
+            background: rgb(211, 239, 49);
+            border-radius: 10px;
+          }
+        }
+      }
+      .pronunciation-con {
+        margin: 1rem 0;
+        &.timid {
+          opacity: 0.4;
+        }
+
+        &.highlighted {
+          opacity: 1;
+          background: none;
+          width: 90%;
+          margin: 1rem auto;
+          border-radius: 1.35rem;
+
+          .pronunciation-wrap {
+            width: 100%;
+          }
+        }
+      }
+
+      .practice-con {
+        margin: 0 auto;
+        min-height: 14%;
+        &.timid {
+          .practice-wrap {
+            opacity: 0.4;
+          }
+        }
+
+        &.highlighted {
+          opacity: 1;
+          background: none;
+        }
+      }
+
+      .add-container {
+        &.timid {
+          opacity: 0.5;
+
+          &:before {
+            opacity: 0.5;
+          }
         }
       }
     }
@@ -398,6 +540,10 @@ button {
     top: 0;
     left: 0;
 
+    &.first {
+      background: transparent;
+    }
+
     * {
       color: #333;
     }
@@ -405,11 +551,49 @@ button {
     div.tuto-wrap {
       text-align: left;
       line-height: 1.7;
-      padding: 0 0.3rem 1rem 0;
+      padding: 0 0em 1rem 0;
+      .box {
+        background: beige;
+        padding-bottom: 0.4rem;
 
+        a {
+          max-width: 10rem;
+          border: 1px solid;
+          text-align: center;
+          display: inline-block;
+          padding: 0 0.3rem;
+          position: absolute;
+          right: 1rem;
+          background: #369;
+          color: #fff;
+        }
+
+        span.white {
+          color: #369;
+          background: #fff;
+          width: 5rem;
+          height: auto;
+          border-radius: 0.1rem;
+          padding: 0.5rem;
+          text-align: center;
+          font-weight: 600;
+          border-radius: 5px;
+          box-shadow: 1px 13px 16px -8px rgba(101, 122, 163, 0.6);
+          -webkit-box-shadow: 1px 13px 16px -8px rgba(101, 122, 163, 0.6);
+          -moz-box-shadow: 1px 13px 16px -8px rgba(101, 122, 163, 0.6);
+        }
+      }
       h1 {
         text-align: center;
         padding: 1rem 0;
+
+        &.first {
+          margin: 0 auto;
+          background: beige;
+          width: 100%;
+          font-size: 1.1rem;
+          padding: 0.3rem 0;
+        }
 
         &.next {
           font-size: 1.2rem;
@@ -435,6 +619,7 @@ button {
         padding: 0.5rem;
         text-align: center;
         font-weight: 600;
+        border-radius: 10px;
       }
 
       button {

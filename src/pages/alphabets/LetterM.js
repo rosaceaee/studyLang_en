@@ -89,10 +89,14 @@ const LetterM = () => {
                 </div>{" "}
                 <div className="add-container">
                   <div className="add-wrap">
-                    <input type="text" value={obj} onChange={inputt}></input>
-                    <button type="submit" onClick={handleClick}>
-                      입력
-                    </button>
+                    {" "}
+                    <h3>단어를 입력해보세요</h3>
+                    <div className="wrap">
+                      <input type="text" value={obj} onChange={inputt}></input>
+                      <button type="submit" onClick={handleClick}>
+                        입력
+                      </button>
+                    </div>
                   </div>
                 </div>
               </>

@@ -86,6 +86,7 @@ const LetterTutorial = () => {
                   width: "100%",
                   position: "relative",
                   textAlign: "center",
+                  background: "beige",
                 }}
               >
                 화면을 누르면 다음 안내문이 나타납니다.
@@ -134,31 +135,18 @@ const LetterTutorial = () => {
                       }
                     >
                       <h3 className="header">예문을 보며 읽어보기.</h3>
-                      <div className="practice-wrap">
+                      <div
+                        className={
+                          highlightedIndex === 2
+                            ? "practice-wrap highlighted"
+                            : "practice-wrap"
+                        }
+                      >
                         <h3>
                           <span className="read-eng">A</span>morepacific
                         </h3>
                         <h3 className="read-kor">
                           아 <span className="otherletters"> 모레 퍼시픽</span>
-                        </h3>
-                      </div>
-
-                      <div className="practice-wrap">
-                        <h3>
-                          <span className="read-eng">A</span>pple
-                        </h3>
-                        <h3 className="read-kor">
-                          애 <span className="otherletters"> 플</span>
-                        </h3>
-                      </div>
-
-                      <div className="practice-wrap">
-                        <h3>
-                          du<span className="read-eng">A</span>l
-                        </h3>
-                        <h3 className="read-kor">
-                          <span className="otherletters"> 듀</span> 어{" "}
-                          <span className="otherletters">ㄹ</span>
                         </h3>
                       </div>
 
@@ -180,14 +168,18 @@ const LetterTutorial = () => {
                       }
                     >
                       <div className="add-wrap">
-                        <input
-                          type="text"
-                          value={obj}
-                          onChange={inputt}
-                        ></input>
-                        <button type="submit" onClick={handleClick}>
-                          입력
-                        </button>
+                        {" "}
+                        <h3>단어를 입력해보세요</h3>
+                        <div className="wrap">
+                          <input
+                            type="text"
+                            value={obj}
+                            onChange={inputt}
+                          ></input>
+                          <button type="submit" onClick={handleClick}>
+                            입력
+                          </button>
+                        </div>
                       </div>
                     </div>
                   </>
