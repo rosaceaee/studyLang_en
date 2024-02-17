@@ -10,7 +10,7 @@ import {
 } from "react-router-dom";
 import Letterrr from "./Letterrr";
 import letters from "../../data/letters.json";
-
+import Tutorial from "../Tutorial";
 export const Contextt = createContext({
   setObj: () => {},
   setList: () => [],
@@ -35,9 +35,9 @@ const LetterNew = () => {
   return (
     <>
       <Contextt.Provider>
+        <Tutorial />
         <div className="demo-con alpha">
           <h1 style={{ paddingTop: "2rem", marginTop: "0" }}>알파벳 목록</h1>
-
           <div className="alphabet-lists">
             {letters.letter.map((letter) => {
               const isClick = click === letter.lettername;
