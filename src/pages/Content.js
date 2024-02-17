@@ -12,7 +12,7 @@ const Content = () => {
         <div className="wrap">
           <h1>영어 읽기 연습</h1>
           <h1 className="startBtn">
-            <Link to="./AlphabetCon"> 시작</Link>
+            <Link to="./letterlist"> 시작</Link>
           </h1>
           {/* <KeyboardInner /> */}
         </div>

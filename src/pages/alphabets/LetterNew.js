@@ -35,28 +35,32 @@ const LetterNew = () => {
   return (
     <>
       <Contextt.Provider>
-        <div className="alphabet-lists">
-          {letters.letter.map((letter) => {
-            const isClick = click === letter.lettername;
-            const className = `box ${isClick ? "acc" : ""}`;
-            console.log("Class Name:", className);
-            return (
-              <div className={className} key={letter.id}>
-                <Link
-                  to={{
-                    pathname: `./ll/${letter.lettername}`,
-                    state: {
-                      from: currLocation.pathname,
-                      pronounce: letter.pronounce,
-                    },
-                  }}
-                  onClick={() => clickEvt(letter.lettername)}
-                >
-                  {letter.lettername}
-                </Link>
-              </div>
-            );
-          })}
+        <div className="demo-con alpha">
+          <h1 style={{ paddingTop: "2rem", marginTop: "0" }}>알파벳 목록</h1>
+
+          <div className="alphabet-lists">
+            {letters.letter.map((letter) => {
+              const isClick = click === letter.lettername;
+              const className = `box ${isClick ? "acc" : ""}`;
+              console.log("Class Name:", className);
+              return (
+                <div className={className} key={letter.id}>
+                  <Link
+                    to={{
+                      pathname: `./${letter.lettername}`,
+                      state: {
+                        from: currLocation.pathname,
+                        pronounce: letter.pronounce,
+                      },
+                    }}
+                    onClick={() => clickEvt(letter.lettername)}
+                  >
+                    {letter.lettername}
+                  </Link>
+                </div>
+              );
+            })}
+          </div>
         </div>
       </Contextt.Provider>
     </>

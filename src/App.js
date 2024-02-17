@@ -80,48 +80,11 @@ function App() {
         <Routes>
           <Route path="/" exact element={<Content />} />
           <Route path="/alphabetCon" exact element={<AlphabetCon />} />
-          <Route path="/AlphabetsMain" exact element={<AlphabetsMain />} />
           <Route path="/SignIn" exact element={<SignIn />} />
           <Route path="/lettertuto" exact element={<LetterTutorial />} />
-          <Route path="/A" exact element={<LetterA />} />
-          <Route path="/B" exact element={<LetterB />} />
-          <Route path="/C" exact element={<LetterC />} />
-          <Route path="/D" exact element={<LetterD />} />
-          <Route path="/E" exact element={<LetterE />} />
-          <Route path="/F" exact element={<LetterF />} />
-          <Route path="/G" exact element={<LetterG />} />
-          <Route path="/H" exact element={<LetterH />} />
-          <Route path="/I" exact element={<LetterI />} />
-          <Route path="/J" exact element={<LetterJ />} />
-          <Route path="/K" exact element={<LetterK />} />
-          <Route path="/L" exact element={<LetterL />} />
-          <Route path="/M" exact element={<LetterM />} />
-          <Route path="/N" exact element={<LetterN />} />
-          <Route path="/O" exact element={<LetterO />} />
-          <Route path="/P" exact element={<LetterP />} />
-          <Route path="/Q" exact element={<LetterQ />} />
-          <Route path="/R" exact element={<LetterR />} />
-          <Route path="/S" exact element={<LetterS />} />
-          <Route path="/T" exact element={<LetterT />} />
-          <Route path="/U" exact element={<LetterU />} />
-          <Route path="/V" exact element={<LetterV />} />
-          <Route path="/W" exact element={<LetterW />} />
-          <Route path="/X" exact element={<LetterX />} />
-          <Route path="/Y" exact element={<LetterY />} />
-          <Route path="/Z" exact element={<LetterZ />} />
-          <Route path="/letternew/" exact element={<LetterNew />} />
-          <Route
-            path="/letternew/ll/:lettername"
-            exact
-            element={<Letterrr />}
-          />
 
-          <Route path="/alphabetsection/" exact element={<AlphabetSection />} />
-          <Route path="/zz/:id" exact element={<Conn />} />
-          <Route path="/te/:idd" element={<TestLetter />} />
-          <Route path="/todotest/" exact element={<TodoTest />} />
-          <Route path="/lettercon" exact element={<LetterContainer />} />
-          <Route path="/datatest" exact element={<About />} />
+          <Route path="/letterlist/" exact element={<LetterNew />} />
+          <Route path="/letterlist/:lettername" exact element={<Letterrr />} />
         </Routes>
       </div>
     </>
