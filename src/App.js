@@ -1,16 +1,26 @@
 import logo from "./logo.svg";
+import { useState, useEffect, useContext, createContext } from "react";
+
 import "./App.css";
 import "./scss/App.scss";
-import { BrowserRouter, Route, Routes, Link } from "react-router-dom";
+import {
+  BrowserRouter,
+  Route,
+  Routes,
+  Link,
+  useLocation,
+} from "react-router-dom";
 import AlphabetCon from "./pages/AlphabetCon";
 
 import LetterNew from "./pages/alphabets/LetterNew";
 import Letterrr from "./pages/alphabets/Letterrr";
 import LetterTutorial from "./pages/alphabets/LetterTutorial";
+
 import KeyboardInner from "./components/KeyboardInner";
 import Content from "./pages/Content";
 import SignIn from "./pages/SignIn";
 
+import Conn from "./Conn";
 {
   /*
 import Keyboard from "simple-keyboard";
@@ -32,10 +42,22 @@ function onKeyPress(button) {
 */
 }
 
+// scroll top
+function ScrollToTop() {
+  const { currLocation } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [currLocation]);
+  return null;
+}
+
 function App() {
   return (
     <>
       <div className="App asdf">
+        {" "}
+        <ScrollToTop />
         <Routes>
           <Route path="/" exact element={<Content />} />
           <Route path="/alphabetCon" exact element={<AlphabetCon />} />
