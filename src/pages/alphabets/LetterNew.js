@@ -15,6 +15,7 @@ export const Contextt = createContext({
   setObj: () => {},
   setList: () => [],
 });
+
 const LetterNew = () => {
   const [data, setData] = useState({});
 
@@ -32,6 +33,7 @@ const LetterNew = () => {
       .then((res) => res.json)
       .then((data) => setData(data.results));
   }, []);
+
   return (
     <>
       <Contextt.Provider>
@@ -51,6 +53,7 @@ const LetterNew = () => {
                       state: {
                         from: currLocation.pathname,
                         pronounce: letter.pronounce,
+                        id: letter.id,
                       },
                     }}
                     onClick={() => clickEvt(letter.lettername)}
