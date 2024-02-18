@@ -63,18 +63,18 @@ const Letterrr = (props) => {
       {" "}
       <div className="demo-con alphabet-con">
         <button onClick={() => navigate(-1)}>뒤로가기</button>
-        <h1>{lettername}</h1>
+        <h1 className="letter">{lettername}</h1>
         <div className="pronunciation-con">
           <div className="pronunciation-wrap">
             <h3 className="header">발음은 어떻게 해야할까요?</h3>
-            <div>
-              <h3>{pronounce[0]}</h3>
-            </div>
-            <div>
-              <h3>{pronounce[1]}</h3>{" "}
-            </div>
-            <div>
-              <h3>{pronounce[2]}</h3>
+            <div className="pron-list">
+              {[...pronounce].map((item, index) => {
+                return (
+                  <div key={index}>
+                    <h3>{pronounce[index]}</h3>
+                  </div>
+                );
+              })}
             </div>
           </div>
         </div>
