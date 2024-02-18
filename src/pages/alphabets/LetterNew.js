@@ -33,10 +33,21 @@ const LetterNew = () => {
       .then((res) => res.json)
       .then((data) => setData(data.results));
   }, []);
+  // scroll top
+  function ScrollToTop() {
+    const { currLocation } = useLocation();
+
+    useEffect(() => {
+      window.scrollTo(0, 0);
+    }, [currLocation]);
+    return null;
+  }
 
   return (
     <>
       <Contextt.Provider>
+        <ScrollToTop />
+
         <Tutorial />
         <div className="demo-con alpha">
           <h1 style={{ paddingTop: "2rem", marginTop: "0" }}>알파벳 목록</h1>

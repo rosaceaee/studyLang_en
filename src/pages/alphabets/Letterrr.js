@@ -62,11 +62,22 @@ const Letterrr = (props) => {
     updatedList.splice(index, 1);
     setList(updatedList);
     localStorage.setItem(lettername, JSON.stringify(updatedList));
-  };
+  }; // scroll top
+  function ScrollToTop() {
+    const { currLocation } = useLocation();
+
+    useEffect(() => {
+      window.scrollTo(0, 0);
+    }, [currLocation]);
+    return null;
+  }
+
   return (
     <>
       {" "}
       <div className="demo-con alphabet-con">
+        {" "}
+        <ScrollToTop />
         <button onClick={() => navigate(-1)}>뒤로가기</button>
         <h1 className="letter">{lettername}</h1>
         <div className="pronunciation-con" key={eachKey}>
