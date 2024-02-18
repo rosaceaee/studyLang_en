@@ -51,8 +51,7 @@ const LetterTutorial = () => {
       const newIndex = (prevIndex + 1) % 5;
 
       if (highlightedIndex === 4) {
-        navigate("../AlphabetCon");
-
+        navigate("../letterlist");
         localStorage.setItem("checked", true);
       }
 
