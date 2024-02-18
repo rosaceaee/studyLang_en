@@ -85,9 +85,11 @@ const LetterTutorial = () => {
                   width: "100%",
                   position: "relative",
                   textAlign: "center",
-                  background: "beige",
+                  background: "rgb(157 220 207)",
                 }}
               >
+                {" "}
+                <span className="nokori">{highlightedIndex + 1} / 5</span>
                 화면을 누르면 다음 안내문이 나타납니다.
               </h3>
               <button
@@ -104,7 +106,12 @@ const LetterTutorial = () => {
                 return (
                   <>
                     {" "}
-                    <h1 className={highlightedIndex === 0 ? "highlighted" : ""}>
+                    <h1
+                      className={
+                        "letter timid" +
+                        (highlightedIndex === 0 ? " highlighted" : "")
+                      }
+                    >
                       {item.lettername}
                     </h1>
                     <div
@@ -141,11 +148,9 @@ const LetterTutorial = () => {
                             : "practice-wrap"
                         }
                       >
-                        <h3>
-                          <span className="read-eng">A</span>morepacific
-                        </h3>
+                        <h3>Angel</h3>
                         <h3 className="read-kor">
-                          아 <span className="otherletters"> 모레 퍼시픽</span>
+                          <span className="otherletters"> </span>
                         </h3>
                       </div>
 
