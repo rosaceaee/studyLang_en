@@ -15,15 +15,20 @@ const Letterrr = (props) => {
   const [obj, setObj] = useState("");
   const [list, setList] = useState([]);
   //const { obj, setObj, list, setList } = useContext(Contextt);
-  const { params, lettername } = useParams();
+  const { params, lettername, id } = useParams();
 
   const letter = letters.letter.find((item) => item.lettername === lettername);
   const pronounce = letter ? letter.pronounce : null;
+  const eachKey = letter ? letter.id : null;
+
   function inputt(e) {
     setObj(e.target.value);
   }
   function handleClick() {
-    setList((list) => [...list, obj]);
+    if (obj === "") {
+      return;
+    }
+    return setList((list) => [...list, obj], setObj(""));
   }
 
   useEffect(() => {
@@ -64,7 +69,7 @@ const Letterrr = (props) => {
       <div className="demo-con alphabet-con">
         <button onClick={() => navigate(-1)}>뒤로가기</button>
         <h1 className="letter">{lettername}</h1>
-        <div className="pronunciation-con">
+        <div className="pronunciation-con" key={eachKey}>
           <div className="pronunciation-wrap">
             <h3 className="header">발음은 어떻게 해야할까요?</h3>
             <div className="pron-list">
