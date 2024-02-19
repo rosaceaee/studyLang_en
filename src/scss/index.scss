@@ -49,21 +49,6 @@ button {
       position: relative;
       padding: 1rem 0;
     }
-    &:after {
-      font-family: "Pretendard-Regular";
-      font-size: 1rem;
-      content: "1. 학습 알파벳입니다.";
-      position: absolute;
-      width: auto;
-      height: 1.4rem;
-      bottom: -2rem;
-      left: 0;
-      padding: 0.2rem;
-      background-color: #fff;
-      border-top: 3px solid rgb(157, 220, 207);
-      border-left: 3px solid rgb(157, 220, 207);
-      border-right: 3px solid rgb(157, 220, 207);
-    }
   }
 
   .wrap {
@@ -500,8 +485,6 @@ button {
           width: 4rem;
           height: 4rem;
           background-color: #fff;
-          &:after {
-          }
 
           &.timid {
             opacity: 0.5;
@@ -510,6 +493,21 @@ button {
           &.highlighted {
             opacity: 1;
             position: relative;
+            &:after {
+              font-family: "Pretendard-Regular";
+              font-size: 1rem;
+              content: "1. 학습 알파벳입니다.";
+              position: absolute;
+              width: 10rem;
+              height: 1.4rem;
+              bottom: -2rem;
+              left: -3.5rem;
+              padding: 0.2rem;
+              background-color: #fff;
+              border-top: 3px solid rgb(157, 220, 207);
+              border-left: 3px solid rgb(157, 220, 207);
+              border-right: 3px solid rgb(157, 220, 207);
+            }
           }
 
           &:after {
