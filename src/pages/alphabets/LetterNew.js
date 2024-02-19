@@ -55,7 +55,7 @@ const LetterNew = () => {
             {letters.letter.map((letter) => {
               const isClick = click === letter.lettername;
               const className = `box ${isClick ? "acc" : ""}`;
-              console.log("Class Name:", className);
+              //    console.log("Class Name:", className);
               return (
                 <div className={className} key={letter.id}>
                   <Link
