@@ -38,13 +38,8 @@ const Content = () => {
         <div className="grass-con btm"></div>
 
         <div className="for-pc">
-          <h1>스마트폰에서만 확인할 수 있습니다.</h1>
-          <h1>Sorry. Only available in mobile phone. </h1>
-        </div>
-
-        <div className="for-land">
-          <h1>핸드폰을 세로로 돌려주세요!</h1>
-          <h1>Sorry. Only available in mobile phone. </h1>
+          <h1>스마트폰 가로모드에서만 확인할 수 있습니다.</h1>
+          <h1>Sorry. Only available in mobile phone landscape view. </h1>
         </div>
 
         <div className="wrap">

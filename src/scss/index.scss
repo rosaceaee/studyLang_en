@@ -100,7 +100,7 @@ button {
   background-repeat: no-repeat;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 501px) {
   .demo-con {
     &.start {
       .for-pc {
@@ -110,11 +110,11 @@ button {
         align-items: center;
 
         flex-direction: column;
-        padding: 0 2rem;
+        padding: 0 1rem;
         line-height: 1.4;
 
         h1 {
-          font-size: 1.6rem;
+          font-size: 1.4rem;
         }
       }
       .wrap {
@@ -123,25 +123,24 @@ button {
 
       .grass-con {
         &.top {
-          top: 0;
-          left: 6rem;
-
+          top: -2rem;
+          left: 0;
           width: 19rem;
-          height: 10rem;
+          height: 6rem;
         }
 
         &.btm {
-          right: 5rem;
-          bottom: 4rem;
-          width: 20rem;
-          height: 10rem;
+          right: 0;
+          bottom: 0rem;
+          width: 18rem;
+          height: 6rem;
         }
       }
     }
   }
 }
 
-@media screen and (max-width: 425px) and (orientation: portrait) {
+@media screen and (max-width: 500px) and (orientation: portrait) {
   .demo-con {
     .grass-con {
       &.top {
@@ -813,45 +812,6 @@ button {
         &:before {
           opacity: 0.5;
         }
-      }
-    }
-  }
-}
-
-@media screen and (max-width: 1000px) and (orientation: landscape) {
-  .demo-con {
-    &.start {
-      height: 100dvh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-
-      flex-direction: column;
-      padding: 0 2rem;
-      line-height: 1.4;
-      .for-pc {
-        display: none;
-      }
-      .for-land {
-        h1 {
-          font-size: 1.6rem;
-        }
-      }
-    }
-
-    .grass-con {
-      &.top {
-        top: 0;
-        left: 0;
-        width: 19rem;
-        height: 6rem;
-      }
-
-      &.btm {
-        right: 0;
-        bottom: 1rem;
-        width: 18rem;
-        height: 6rem;
       }
     }
   }
