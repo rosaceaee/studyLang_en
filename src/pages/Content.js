@@ -39,7 +39,7 @@ const Content = () => {
 
         <div className="for-pc">
           <h1>스마트폰 가로모드에서만 확인할 수 있습니다.</h1>
-          <h1>Sorry. Only available in mobile phone landscape view. </h1>
+          <h1>Sorry. Only available portrait view in mobile. </h1>
         </div>
 
         <div className="wrap">
