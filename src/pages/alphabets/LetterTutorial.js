@@ -4,17 +4,22 @@ import { QuestionBox } from "../../components/QuestionBox";
 import { useNavigate, useLocation, useMatch } from "react-router-dom";
 import letters from "../../data/letters.json";
 const LetterTutorial = () => {
-  function inputt(e) {
-    setObj(e.target.value);
-  }
-  function handleClick() {
-    setList((list) => [...list, obj]);
-  }
   const [obj, setObj] = useState("");
   const [list, setList] = useState([]);
 
+  const [tuto, setTuto] = useState(true);
+  const [highlightedIndex, setHighlightedIndex] = useState(0);
+  const [tutoChk, setTutoChk] = useState(["zdfsd"]);
+
+  function inputt(e) {
+    if (e.target.value !== "") {
+      setObj(e.target.value);
+    }
+    //
+  }
+
   useEffect(() => {
-    const storedList = localStorage.getItem("a");
+    const storedList = localStorage.getItem("test");
     if (storedList) {
       setList(JSON.parse(storedList));
     }
@@ -39,13 +44,18 @@ const LetterTutorial = () => {
     }
   }, []);
 
+  function click() {
+    setList((list) => [...list, obj]);
+    setHighlightedIndex(list.length + 2 && tuto);
+    localStorage.setItem(tutoChk, true);
+    //console.log(tutoChk);
+  }
+
+  function nextBtn() {
+    setHighlightedIndex(highlightedIndex + 5);
+  }
+
   // tutorial last
-
-  const [tuto, setTuto] = useState(true);
-  const [highlightedIndex, setHighlightedIndex] = useState(0);
-
-  useEffect(() => {}, []);
-
   function accentDom() {
     setHighlightedIndex((prevIndex) => {
       const newIndex = (prevIndex + 1) % 5;
@@ -55,13 +65,98 @@ const LetterTutorial = () => {
         localStorage.setItem("checked", true);
       }
 
-      if (newIndex === 0 && tuto) {
-        setHighlightedIndex(null);
+      //    if (newIndex === 0 && tuto) {
+      //     setHighlightedIndex(null);
+      //   }
+
+      if (newIndex === 4 && tuto) {
+        {
+          /*
+        function handleClick(e) {
+          setList((list) => [...list, obj]);
+          setHighlightedIndex(list.length + 2 && tuto);
+          localStorage.setItem(tutoChk, true);
+          console.log(tutoChk);
+        }
+        handleClick(); 
+      */
+        }
+
+        return prevIndex;
+      } else if (newIndex > 5) {
+        alert("y");
+        return newIndex;
       }
+
+      console.log(newIndex);
+
       return newIndex;
     });
   }
 
+  const Beww = () => {
+    const ischecked = () => {
+      localStorage.setItem(tutoChk, true);
+    };
+    switch (highlightedIndex) {
+      case 0:
+        return (
+          <>
+            <span className="number">{highlightedIndex + 1}</span> 학습
+            알파벳입니다.
+          </>
+        );
+        break;
+      case 1:
+        return (
+          <>
+            <span className="number">{highlightedIndex + 1}</span> 알파벳을 읽는
+            한글입니다
+          </>
+        );
+        break;
+      case 2:
+        const newChk2 = localStorage.getItem(tutoChk, false);
+        // setTutoChk(newChk2);
+
+        return (
+          <>
+            {!newChk2 ? (
+              <>
+                <span className="number">{highlightedIndex + 1}</span> 학습 단어
+                읽는 연습을 합니다. 아래에 단어를 추가하여 메모할 수 있습니다.
+                보이지 않을 경우 화면을 아래로 내려보세요.
+              </>
+            ) : (
+              <>
+                <span className="number">
+                  {highlightedIndex + 3} 이렇게 단어장에 추가됩니다.
+                  <button onClick={nextBtn}>다음</button>
+                  <button
+                    className={highlightedIndex === 5 ? "highlighted" : "hide"}
+                    onClick={ischecked}
+                  >
+                    화면 안내 종료
+                  </button>
+                </span>
+              </>
+            )}
+          </>
+        );
+
+        break;
+      case 3:
+        return (
+          <>
+            <span className="number">{highlightedIndex + 1}</span>함 입력헤보셈
+          </>
+        );
+        break;
+
+      default:
+        break;
+    }
+  };
   useEffect(() => {
     const localsto = localStorage.getItem("checked");
     if (localsto) {
@@ -90,18 +185,20 @@ const LetterTutorial = () => {
               >
                 {" "}
                 <span className="nokori">{highlightedIndex + 1} / 5</span>
-                화면을 누르면 다음 안내문이 나타납니다.
+                <span className="explain-wrap">
+                  <Beww />
+                </span>
+                <button
+                  className={highlightedIndex === 5 ? " highlighted" : "hide"}
+                  onClick={ischecked}
+                >
+                  화면 안내 종료
+                </button>
               </h3>
-              <button
-                className={highlightedIndex === 4 ? " highlighted" : "hide"}
-                onClick={ischecked}
-              >
-                화면 안내 종료
-              </button>
             </div>
 
             {letters.letter
-              .filter((sampleitm) => sampleitm.lettername === "A")
+              .filter((sampleitm) => sampleitm.lettername === "test")
               .map((item) => {
                 return (
                   <>
@@ -145,13 +242,10 @@ const LetterTutorial = () => {
                         className={
                           highlightedIndex === 2
                             ? "practice-wrap highlighted"
-                            : "practice-wrap"
+                            : "practice-wrap "
                         }
                       >
-                        <h3>Angel</h3>
-                        <h3 className="read-kor">
-                          <span className="otherletters"> </span>
-                        </h3>
+                        <h3>ㅁㄴㅇㄹ</h3>
                       </div>
 
                       {list.map((ii, index) => {
@@ -177,10 +271,10 @@ const LetterTutorial = () => {
                         <div className="wrap">
                           <input
                             type="text"
-                            value={obj}
+                            //value={obj}
                             onChange={inputt}
                           ></input>
-                          <button type="submit" onClick={handleClick}>
+                          <button type="submit" onClick={click}>
                             입력
                           </button>
                         </div>

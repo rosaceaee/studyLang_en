@@ -273,6 +273,7 @@ button {
 
       &.highlighted {
         position: relative;
+        /*
         &::before {
           content: "2. 알파벳을 읽는 한글입니다";
           position: absolute;
@@ -284,7 +285,7 @@ button {
           border-top: 3px solid rgb(157, 220, 207);
           border-left: 3px solid rgb(157, 220, 207);
           border-right: 3px solid rgb(157, 220, 207);
-        }
+        }*/
       }
     }
 
@@ -349,12 +350,14 @@ button {
       border-radius: 20px;
       &.highlighted {
         position: relative;
+
+        /*
         &::before {
           content: "3. 학습 단어 읽는 연습을 합니다. 아래에 단어를 추가하여 메모할 수 있습니다. 보이지 않을 경우 화면을 아래로 내려보세요.";
           position: absolute;
           width: 57%;
           z-index: 9999;
-          bottom: -6rem;
+          bottom: 7rem;
           height: 100%;
           max-height: 8rem;
           right: 0;
@@ -366,6 +369,7 @@ button {
           border-left: 3px solid rgb(157, 220, 207);
           border-right: 3px solid rgb(157, 220, 207);
         }
+        */
       }
 
       h3.header {
@@ -491,7 +495,7 @@ button {
 
           &.highlighted {
             opacity: 1;
-            position: relative;
+            position: relative; /*
             &:after {
               font-family: "Pretendard-Regular";
               font-size: 1rem;
@@ -506,9 +510,9 @@ button {
               border-top: 3px solid rgb(157, 220, 207);
               border-left: 3px solid rgb(157, 220, 207);
               border-right: 3px solid rgb(157, 220, 207);
-            }
+            }*/
           }
-
+          /*
           &:after {
             font-family: "Pretendard-Regular";
             font-size: 1rem;
@@ -523,7 +527,7 @@ button {
             border-top: 3px solid rgb(157, 220, 207);
             border-left: 3px solid rgb(157, 220, 207);
             border-right: 3px solid rgb(157, 220, 207);
-          }
+          }*/
         }
       }
 
@@ -624,6 +628,7 @@ button {
       .practice-con {
         margin: 0 auto;
         min-height: 14%;
+        padding: 0.5rem 0 0;
         &.timid {
           h3.header {
             opacity: 0.4;
@@ -740,6 +745,11 @@ button {
         position: relative;
         right: 0;
         background: #fff;
+      }
+
+      span.explain-wrap {
+        display: block;
+        text-align: left;
       }
 
       .hide {

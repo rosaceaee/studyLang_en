@@ -1,6 +1,11 @@
 {
   "letter": [
     {
+      "id": 0,
+      "lettername": "test",
+      "pronounce": ["아", "애", "어"]
+    },
+    {
       "id": 1,
       "lettername": "A",
       "pronounce": ["아", "애", "어"]
