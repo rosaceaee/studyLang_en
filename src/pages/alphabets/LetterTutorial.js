@@ -51,44 +51,16 @@ const LetterTutorial = () => {
     //console.log(tutoChk);
   }
 
-  function nextBtn() {
-    setHighlightedIndex(highlightedIndex + 5);
-  }
-
   // tutorial last
   function accentDom() {
     setHighlightedIndex((prevIndex) => {
       const newIndex = (prevIndex + 1) % 5;
 
-      if (highlightedIndex === 4) {
-        navigate("../letterlist");
-        localStorage.setItem("checked", true);
-      }
-
-      //    if (newIndex === 0 && tuto) {
-      //     setHighlightedIndex(null);
-      //   }
-
       if (newIndex === 4 && tuto) {
-        {
-          /*
-        function handleClick(e) {
-          setList((list) => [...list, obj]);
-          setHighlightedIndex(list.length + 2 && tuto);
-          localStorage.setItem(tutoChk, true);
-          console.log(tutoChk);
-        }
-        handleClick(); 
-      */
-        }
-
         return prevIndex;
       } else if (newIndex > 5) {
-        alert("y");
         return newIndex;
       }
-
-      console.log(newIndex);
 
       return newIndex;
     });
@@ -96,7 +68,8 @@ const LetterTutorial = () => {
 
   const Beww = () => {
     const ischecked = () => {
-      localStorage.setItem(tutoChk, true);
+      navigate("../letterlist");
+      localStorage.setItem("checked", true);
     };
     switch (highlightedIndex) {
       case 0:
@@ -131,9 +104,8 @@ const LetterTutorial = () => {
               <>
                 <span className="number">
                   {highlightedIndex + 3} 이렇게 단어장에 추가됩니다.
-                  <button onClick={nextBtn}>다음</button>
                   <button
-                    className={highlightedIndex === 5 ? "highlighted" : "hide"}
+                    className={highlightedIndex ? "highlighted" : "hide"}
                     onClick={ischecked}
                   >
                     화면 안내 종료
@@ -164,10 +136,6 @@ const LetterTutorial = () => {
     }
   }, []);
 
-  const ischecked = () => {
-    localStorage.setItem("checked", true);
-  };
-
   return (
     <>
       <div className="demo-con alphabet-con" onClick={accentDom}>
@@ -184,16 +152,9 @@ const LetterTutorial = () => {
                 }}
               >
                 {" "}
-                <span className="nokori">{highlightedIndex + 1} / 5</span>
                 <span className="explain-wrap">
                   <Beww />
                 </span>
-                <button
-                  className={highlightedIndex === 5 ? " highlighted" : "hide"}
-                  onClick={ischecked}
-                >
-                  화면 안내 종료
-                </button>
               </h3>
             </div>
 
