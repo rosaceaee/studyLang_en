@@ -16,7 +16,7 @@ const LetterTutorial = () => {
 
   const [tuto, setTuto] = useState(true);
   const [highlightedIndex, setHighlightedIndex] = useState(0);
-  const [tutoChk, setTutoChk] = useState(["zdfsd"]);
+  const [tutoChk, setTutoChk] = useState(["chk-tutorial-done"]);
 
   function inputt(e) {
     if (e.target.value !== "") {
@@ -84,6 +84,7 @@ const LetterTutorial = () => {
           <>
             <span className="number">{highlightedIndex + 1}</span> 학습
             알파벳입니다.
+            <span className="annai">화면을 누르면 다음으로 넘어갑니다.</span>
           </>
         );
         break;
@@ -114,7 +115,9 @@ const LetterTutorial = () => {
                 <span className="number">{highlightedIndex + 3}</span>
                 <span>이렇게 단어장에 추가됩니다.</span>
                 <button
-                  className={highlightedIndex ? "highlighted" : "hide"}
+                  className={
+                    highlightedIndex ? "finishBtn highlighted" : "hide"
+                  }
                   onClick={ischecked}
                 >
                   화면 안내 종료
@@ -124,7 +127,6 @@ const LetterTutorial = () => {
           </>
         );
 
-        break;
       case 3:
         return (
           <>
@@ -132,7 +134,6 @@ const LetterTutorial = () => {
             입력해보세요.
           </>
         );
-        break;
 
       default:
         break;
@@ -187,14 +188,16 @@ const LetterTutorial = () => {
                   >
                     <div className="pronunciation-wrap">
                       <h3 className="header">발음은 어떻게 해야할까요?</h3>
-                      <div>
-                        <h3>{item.pronounce[0]}</h3>
-                      </div>
-                      <div>
-                        <h3>{item.pronounce[1]}</h3>{" "}
-                      </div>
-                      <div>
-                        <h3>{item.pronounce[2]}</h3>
+                      <div className="pron-list">
+                        <div>
+                          <h3>{item.pronounce[0]}</h3>
+                        </div>
+                        <div>
+                          <h3>{item.pronounce[1]}</h3>{" "}
+                        </div>
+                        <div>
+                          <h3>{item.pronounce[2]}</h3>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -232,6 +235,11 @@ const LetterTutorial = () => {
                           type="text"
                           //value={obj}
                           onChange={inputt}
+                          className={
+                            highlightedIndex === 3
+                              ? "input-highlight highlighted"
+                              : "timid"
+                          }
                         ></input>
                         <button type="submit" onClick={click}>
                           입력
