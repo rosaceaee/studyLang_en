@@ -35,7 +35,7 @@ button {
     border-radius: 5px;
   }
 }
-
+/* 전체 프레임 설정 */
 .demo-con {
   width: 100%;
   min-height: 100dvh;
@@ -99,7 +99,9 @@ button {
   background: url("../images/grass.png");
   background-repeat: no-repeat;
 }
+/* */
 
+/* 모바일 디바이스가 아닌 해상도 일 때 내용 관련  */
 @media screen and (min-width: 501px) {
   .demo-con {
     &.start {
@@ -139,8 +141,11 @@ button {
     }
   }
 }
+/* */
 
+/* 모바일 디바이스 스크린 시작 */
 @media screen and (max-width: 500px) and (orientation: portrait) {
+  /* 시작 페이지 */
   .demo-con {
     .grass-con {
       &.top {
@@ -225,7 +230,9 @@ button {
       }
     }
   }
+  /* */
 
+  /* 알파벳 리스트 페이지 */
   .alphabet-con {
     display: grid;
     grid-template-columns: repeat(1, 1fr);
@@ -427,7 +434,7 @@ button {
 
     .add-container {
       width: 100%;
-      height: 13%;
+      height: 18%;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -457,6 +464,11 @@ button {
 
           input {
             width: 12rem;
+
+            &.input-highlight {
+              position: relative;
+              transform: scale(1.1);
+            }
           }
 
           button {
@@ -469,6 +481,7 @@ button {
       }
     }
 
+    /* 튜토리얼 페이지 */
     .tutorial-con {
       background: rgba(0, 0, 0, 0.6);
       width: 100%;
@@ -592,20 +605,23 @@ button {
           display: block;
           color: #333;
 
-          &.highlighted {
-            z-index: 999;
-            transition: all 0.3s ease;
-            border: 2px solid #fff;
-            padding: 1rem 0rem;
-            font-size: 1rem;
-            font-weight: 700;
-            background: rgb(157, 220, 207);
-            border-radius: 10px;
-            display: flex;
-            margin: 1rem auto;
-            width: 9rem;
-            justify-content: center;
-            align-items: center;
+          &.finishBtn {
+            &.highlighted {
+              z-index: 999;
+              transition: all 0.3s ease;
+              border: 4px solid #fff;
+              padding: 1rem 0.2rem;
+              font-size: 1rem;
+              font-weight: 700;
+              background: rgb(13, 75, 126);
+              color: #fff;
+              border-radius: 10px;
+              display: flex;
+              margin: 1rem auto;
+              width: 10rem;
+              justify-content: center;
+              align-items: center;
+            }
           }
         }
       }
@@ -661,12 +677,14 @@ button {
       }
     }
   }
+
   .highlighted {
     z-index: 999;
     transition: all 0.3s ease;
     border: 3px solid rgb(157 220 207);
     background-color: #fff;
   }
+
   .tutorial-con {
     background: rgba(0, 0, 0, 0.4);
     width: 100%;
@@ -757,13 +775,25 @@ button {
         display: flex;
         text-align: left;
         padding: 1rem;
-        justify-content: space-evenly;
+        justify-content: flex-start;
         align-items: center;
         .number {
           border: 1px solid;
           padding: 0.3rem 1rem;
           background: #fff;
           border-radius: 10px;
+          margin-right: 0.5rem;
+        }
+
+        .annai {
+          position: absolute;
+          font-size: 1rem;
+          right: -1rem;
+          width: 7.7rem;
+          bottom: 0.7rem;
+          background: #fff;
+          border: none;
+          line-height: 1.5;
         }
 
         span {
